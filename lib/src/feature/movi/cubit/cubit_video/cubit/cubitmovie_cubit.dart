@@ -20,16 +20,4 @@ class CubitmovieCubit extends Cubit<CubitmovieState> {
       emit(state.copyWith(statusmovie: MovieStatus.error, error: e.toString()));
     }
   }
-
-  Future<void> getActors(String idMovi) async {
-    emit(state.copyWith(
-      statusmovie: MovieStatus.loading,
-    ));
-    try {
-      var cast = await serviceMovi.getActor(idMovi);
-      emit(state.copyWith(statusmovie: MovieStatus.movies, cast: cast));
-    } catch (e) {
-      emit(state.copyWith(statusmovie: MovieStatus.error, error: e.toString()));
-    }
-  }
 }

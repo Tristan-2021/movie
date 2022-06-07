@@ -4,6 +4,7 @@ import 'package:movi/src/app/welcome.dart';
 import 'package:movi/src/core/styles/colors.dart';
 import 'package:http/http.dart' as http;
 import 'package:movi/src/feature/domain/repo_sources/data_sources.dart';
+import 'package:movi/src/feature/movi/cubit/cubit_cast/cubit/cubitccast_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
 
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => MovidetailCubit(context.read<ServiceMovi>()),
+          ),
+          BlocProvider(
+            create: (context) => CubitccastCubit(context.read<ServiceMovi>()),
           ),
         ],
         child: MaterialApp(
