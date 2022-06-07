@@ -24,7 +24,7 @@ mixin _$VideoDetails {
   String get backdropPath => throw _privateConstructorUsedError;
   dynamic get belongsToCollection => throw _privateConstructorUsedError;
   int get budget => throw _privateConstructorUsedError;
-  List<dynamic> get genres => throw _privateConstructorUsedError;
+  List<Genre> get genres => throw _privateConstructorUsedError;
   String get homepage => throw _privateConstructorUsedError;
   int get id => throw _privateConstructorUsedError;
   String get imdbId => throw _privateConstructorUsedError;
@@ -33,7 +33,8 @@ mixin _$VideoDetails {
   String get overview => throw _privateConstructorUsedError;
   double get popularity => throw _privateConstructorUsedError;
   String get posterPath => throw _privateConstructorUsedError;
-  List<dynamic> get productionCompanies => throw _privateConstructorUsedError;
+  List<ProductionCompany> get productionCompanies =>
+      throw _privateConstructorUsedError;
   DateTime get releaseDate => throw _privateConstructorUsedError;
   int get revenue => throw _privateConstructorUsedError;
   int get runtime => throw _privateConstructorUsedError;
@@ -60,7 +61,7 @@ abstract class $VideoDetailsCopyWith<$Res> {
       String backdropPath,
       dynamic belongsToCollection,
       int budget,
-      List<dynamic> genres,
+      List<Genre> genres,
       String homepage,
       int id,
       String imdbId,
@@ -69,7 +70,7 @@ abstract class $VideoDetailsCopyWith<$Res> {
       String overview,
       double popularity,
       String posterPath,
-      List<dynamic> productionCompanies,
+      List<ProductionCompany> productionCompanies,
       DateTime releaseDate,
       int revenue,
       int runtime,
@@ -135,7 +136,7 @@ class _$VideoDetailsCopyWithImpl<$Res> implements $VideoDetailsCopyWith<$Res> {
       genres: genres == freezed
           ? _value.genres
           : genres // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<Genre>,
       homepage: homepage == freezed
           ? _value.homepage
           : homepage // ignore: cast_nullable_to_non_nullable
@@ -171,7 +172,7 @@ class _$VideoDetailsCopyWithImpl<$Res> implements $VideoDetailsCopyWith<$Res> {
       productionCompanies: productionCompanies == freezed
           ? _value.productionCompanies
           : productionCompanies // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<ProductionCompany>,
       releaseDate: releaseDate == freezed
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
@@ -224,7 +225,7 @@ abstract class _$$_VideoDetailsCopyWith<$Res>
       String backdropPath,
       dynamic belongsToCollection,
       int budget,
-      List<dynamic> genres,
+      List<Genre> genres,
       String homepage,
       int id,
       String imdbId,
@@ -233,7 +234,7 @@ abstract class _$$_VideoDetailsCopyWith<$Res>
       String overview,
       double popularity,
       String posterPath,
-      List<dynamic> productionCompanies,
+      List<ProductionCompany> productionCompanies,
       DateTime releaseDate,
       int revenue,
       int runtime,
@@ -302,7 +303,7 @@ class __$$_VideoDetailsCopyWithImpl<$Res>
       genres: genres == freezed
           ? _value._genres
           : genres // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<Genre>,
       homepage: homepage == freezed
           ? _value.homepage
           : homepage // ignore: cast_nullable_to_non_nullable
@@ -338,7 +339,7 @@ class __$$_VideoDetailsCopyWithImpl<$Res>
       productionCompanies: productionCompanies == freezed
           ? _value._productionCompanies
           : productionCompanies // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<ProductionCompany>,
       releaseDate: releaseDate == freezed
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
@@ -388,7 +389,7 @@ class _$_VideoDetails implements _VideoDetails {
       required this.backdropPath,
       required this.belongsToCollection,
       required this.budget,
-      required final List<dynamic> genres,
+      required final List<Genre> genres,
       required this.homepage,
       required this.id,
       required this.imdbId,
@@ -397,7 +398,7 @@ class _$_VideoDetails implements _VideoDetails {
       required this.overview,
       required this.popularity,
       required this.posterPath,
-      required final List<dynamic> productionCompanies,
+      required final List<ProductionCompany> productionCompanies,
       required this.releaseDate,
       required this.revenue,
       required this.runtime,
@@ -421,9 +422,9 @@ class _$_VideoDetails implements _VideoDetails {
   final dynamic belongsToCollection;
   @override
   final int budget;
-  final List<dynamic> _genres;
+  final List<Genre> _genres;
   @override
-  List<dynamic> get genres {
+  List<Genre> get genres {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_genres);
   }
@@ -444,9 +445,9 @@ class _$_VideoDetails implements _VideoDetails {
   final double popularity;
   @override
   final String posterPath;
-  final List<dynamic> _productionCompanies;
+  final List<ProductionCompany> _productionCompanies;
   @override
-  List<dynamic> get productionCompanies {
+  List<ProductionCompany> get productionCompanies {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_productionCompanies);
   }
@@ -560,7 +561,7 @@ abstract class _VideoDetails implements VideoDetails {
       required final String backdropPath,
       required final dynamic belongsToCollection,
       required final int budget,
-      required final List<dynamic> genres,
+      required final List<Genre> genres,
       required final String homepage,
       required final int id,
       required final String imdbId,
@@ -569,7 +570,7 @@ abstract class _VideoDetails implements VideoDetails {
       required final String overview,
       required final double popularity,
       required final String posterPath,
-      required final List<dynamic> productionCompanies,
+      required final List<ProductionCompany> productionCompanies,
       required final DateTime releaseDate,
       required final int revenue,
       required final int runtime,
@@ -592,7 +593,7 @@ abstract class _VideoDetails implements VideoDetails {
   @override
   int get budget => throw _privateConstructorUsedError;
   @override
-  List<dynamic> get genres => throw _privateConstructorUsedError;
+  List<Genre> get genres => throw _privateConstructorUsedError;
   @override
   String get homepage => throw _privateConstructorUsedError;
   @override
@@ -610,7 +611,8 @@ abstract class _VideoDetails implements VideoDetails {
   @override
   String get posterPath => throw _privateConstructorUsedError;
   @override
-  List<dynamic> get productionCompanies => throw _privateConstructorUsedError;
+  List<ProductionCompany> get productionCompanies =>
+      throw _privateConstructorUsedError;
   @override
   DateTime get releaseDate => throw _privateConstructorUsedError;
   @override

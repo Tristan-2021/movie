@@ -13,7 +13,6 @@ class Movies with _$Movies {
     required String backdropPath,
     required List<int> genreIds,
     required int id,
-    //required OriginalLanguage originalLanguage,
     required String originalTitle,
     required String overview,
     required double popularity,

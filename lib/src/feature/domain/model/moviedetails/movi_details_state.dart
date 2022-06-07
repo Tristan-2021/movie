@@ -1,7 +1,8 @@
-// ignore_for_file: invalid_annotation_target, depend_on_referenced_packages
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:json_annotation/json_annotation.dart';
+import 'package:movi/src/feature/domain/model/company/company_state.dart';
+import 'package:movi/src/feature/domain/model/gnro/gnro_state.dart';
 part 'movi_details_state.g.dart';
 part 'movi_details_state.freezed.dart';
 
@@ -13,7 +14,7 @@ class VideoDetails with _$VideoDetails {
     required String backdropPath,
     required dynamic belongsToCollection,
     required int budget,
-    required List genres,
+    required List<Genre> genres,
     required String homepage,
     required int id,
     required String imdbId,
@@ -22,7 +23,7 @@ class VideoDetails with _$VideoDetails {
     required String overview,
     required double popularity,
     required String posterPath,
-    required List productionCompanies,
+    required List<ProductionCompany> productionCompanies,
     required DateTime releaseDate,
     required int revenue,
     required int runtime,

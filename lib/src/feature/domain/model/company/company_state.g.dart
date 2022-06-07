@@ -9,15 +9,15 @@ part of 'company_state.dart';
 ProductionCompany _$ProductionCompanyFromJson(Map<String, dynamic> json) =>
     ProductionCompany(
       id: json['id'] as int,
-      logoPath: json['logoPath'] as String,
+      logoPath: json['logo_path'] as String?,
       name: json['name'] as String,
-      originCountry: json['originCountry'] as String,
+      originCountry: json['origin_country'] as String,
     );
 
 Map<String, dynamic> _$ProductionCompanyToJson(ProductionCompany instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'logoPath': instance.logoPath,
+      'logo_path': instance.logoPath,
       'name': instance.name,
-      'originCountry': instance.originCountry,
+      'origin_country': instance.originCountry,
     };

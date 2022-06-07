@@ -81,6 +81,7 @@ class ServiceMovi {
     var data = await httpClient.get(url).catchError((e) {
       return null;
     });
+    print(idpeli);
     if (data.statusCode == 200) {
       var videodetails = VideoDetails.fromJson(json.decode(data.body));
       return videodetails;

@@ -98,11 +98,11 @@ class CastView extends StatelessWidget {
         ),
         RowColum(
           label: 'Studio',
-          label1: getCompany(movidetails.productionCompanies),
+          label1: movidetails.productionCompanies[0].name,
         ),
         RowColum(
           label: 'Gnero',
-          label1: getGnro(movidetails.genres),
+          label1: movidetails.genres[0].name,
         ),
         RowColum(
           label: 'Release',

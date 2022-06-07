@@ -21,18 +21,18 @@ String getGnro(List<dynamic>? list) {
   // [{id: 28, name: Acción}, {id: 12, name: Aventura}, {id: 35, name: Comedia}],
 }
 
-String getCompany(List<dynamic>? list) {
-  String name = '';
-  if (list != null) {
-    for (var element in list) {
-      Map<String, dynamic> genro0 = list[0];
+// String getCompany(List<dynamic>? list) {
+//   String name = '';
+//   if (list != null) {
+//     for (var element in list) {
+//       Map<String, dynamic> genro0 = list[0];
 
-      name = genro0["name"];
-      // vacia.add(list );
-    }
-    return name;
-  } else {
-    return 'no unkown';
-  }
-  // [{id: 28, name: Acción}, {id: 12, name: Aventura}, {id: 35, name: Comedia}],
-}
+//       name = genro0["name"];
+//       // vacia.add(list );
+//     }
+//     return name;
+//   } else {
+//     return 'no unkown';
+//   }
+//   // [{id: 28, name: Acción}, {id: 12, name: Aventura}, {id: 35, name: Comedia}],
+// }
