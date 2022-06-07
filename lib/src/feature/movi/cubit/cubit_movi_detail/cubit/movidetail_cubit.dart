@@ -6,19 +6,20 @@ import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_s
 class MovidetailCubit extends Cubit<MovidetailState> {
   ServiceMovi serviceMovi;
 
-  MovidetailCubit(this.serviceMovi) : super(MovidetailState());
+  MovidetailCubit(this.serviceMovi) : super(const MovidetailState());
 
   Future<void> getVideoDetails(String idMovi) async {
-    // emit(state.copyWith(
-    //   statusmovie: MovieStatus.loading,
-    // ));
-    // try {
-    //   var videodetails = await serviceMovi.getDetails(idMovi);
-    //   print(videodetails);
-    //   emit(state.copyWith(
-    //       statusmovie: MovieStatus.movidetail, videodetail: videodetails));
-    // } catch (e) {
-    //   emit(state.copyWith(statusmovie: MovieStatus.error, error: e.toString()));
-    // }
+    emit(state.copyWith(
+      statusmovie: MovieDetailStatus.loading,
+    ));
+    try {
+      var videodetails = await serviceMovi.getDetails(idMovi);
+      emit(state.copyWith(
+          statusmovie: MovieDetailStatus.movidetail,
+          videodetail: videodetails));
+    } catch (e) {
+      emit(state.copyWith(
+          statusmovie: MovieDetailStatus.error, error: e.toString()));
+    }
   }
 }

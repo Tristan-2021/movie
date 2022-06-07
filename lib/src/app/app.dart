@@ -4,6 +4,7 @@ import 'package:movi/src/app/welcome.dart';
 import 'package:movi/src/core/styles/colors.dart';
 import 'package:http/http.dart' as http;
 import 'package:movi/src/feature/domain/repo_sources/data_sources.dart';
+import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
 
 class MyApp extends StatelessWidget {
@@ -14,10 +15,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider(
       create: (context) => ServiceMovi(http.Client()),
-      child: BlocProvider(
-        create: (context) => CubitmovieCubit(
-          serviceMovi: context.read<ServiceMovi>(),
-        )..getMovies(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => CubitmovieCubit(
+              serviceMovi: context.read<ServiceMovi>(),
+            )..getMovies(),
+          ),
+          BlocProvider(
+            create: (context) => MovidetailCubit(context.read<ServiceMovi>()),
+          ),
+        ],
         child: MaterialApp(
           title: 'Flutter Demo',
           theme: ThemeData().copyWith(

@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movi/src/core/utls/assets.dart';
 import 'package:movi/src/core/utls/get_iamge.dart';
 import 'package:movi/src/feature/domain/model/movies_state.dart';
+import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_state.dart';
 
@@ -75,9 +76,9 @@ class ItemsMovies extends StatelessWidget {
                   .read<CubitmovieCubit>()
                   .getActors(movies[index].id.toString());
 
-              // context
-              //     .read<CubitmovieCubit>()
-              //     .getVideoDetails(movies[index].id.toString());
+              context
+                  .read<MovidetailCubit>()
+                  .getVideoDetails(movies[index].id.toString());
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
