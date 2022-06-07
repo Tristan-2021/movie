@@ -76,9 +76,6 @@ class ItemsMovies extends StatelessWidget {
               context
                   .read<CubitccastCubit>()
                   .getActors(movies[index].id.toString());
-              context
-                  .read<CubitccastCubit>()
-                  .getActors(movies[index].id.toString());
 
               context
                   .read<MovidetailCubit>()

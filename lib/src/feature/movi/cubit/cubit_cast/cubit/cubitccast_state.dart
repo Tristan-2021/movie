@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:movi/src/feature/domain/model/casts_state.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

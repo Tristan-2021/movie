@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages, unused_import
+
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:movi/src/feature/domain/repo_sources/data_sources.dart';
@@ -14,6 +16,7 @@ class MovidetailCubit extends Cubit<MovidetailState> {
     ));
     try {
       var videodetails = await serviceMovi.getDetails(idMovi);
+
       emit(state.copyWith(
           statusmovie: MovieDetailStatus.movidetail,
           videodetail: videodetails));

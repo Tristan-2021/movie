@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movi/src/core/utls/date.dart';
 import 'package:movi/src/core/utls/get_iamge.dart';
 import 'package:movi/src/feature/domain/model/casts_state.dart';
+import 'package:movi/src/feature/domain/model/moviedetails/movi_details_state.dart';
 import 'package:movi/src/feature/domain/model/movies_state.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_cast/cubit/cubitccast_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_cast/cubit/cubitccast_state.dart';
@@ -11,7 +13,9 @@ import 'package:movi/src/feature/movi/widget_custon/row_paddind.dart';
 
 class CastWidget extends StatelessWidget {
   final Movies movil;
-  const CastWidget({Key? key, required this.movil}) : super(key: key);
+  final VideoDetails movidetails;
+  const CastWidget({Key? key, required this.movil, required this.movidetails})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +32,10 @@ class CastWidget extends StatelessWidget {
             );
 
           case MovieCastStatus.castdet:
-            return CastView(cast: state.cast!);
+            return CastView(
+              cast: state.cast!,
+              movidetails: movidetails,
+            );
           case MovieCastStatus.error:
             return Center(
               child: Text(state.error),
@@ -40,15 +47,19 @@ class CastWidget extends StatelessWidget {
 }
 
 class CastView extends StatelessWidget {
+  final VideoDetails movidetails;
   const CastView({
     Key? key,
     required this.cast,
+    required this.movidetails,
   }) : super(key: key);
 
   final List<Cast> cast;
 
   @override
   Widget build(BuildContext context) {
+    //print(movidetails.genres);
+
     return Column(
       textDirection: TextDirection.ltr,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -85,17 +96,17 @@ class CastView extends StatelessWidget {
               ),
           ],
         ),
-        const RowColum(
+        RowColum(
           label: 'Studio',
-          label1: 'Wagners Bros',
+          label1: getCompany(movidetails.productionCompanies),
         ),
-        const RowColum(
+        RowColum(
           label: 'Gnero',
-          label1: 'Acction',
+          label1: getGnro(movidetails.genres),
         ),
         RowColum(
           label: 'Release',
-          label1: ' date(movil.releaseDate)',
+          label1: date(movidetails.releaseDate),
         ),
       ],
     );
