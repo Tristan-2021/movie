@@ -41,19 +41,47 @@ void main() {
         });
 
     blocTest<CubitmovieCubit, CubitmovieState>(
-        'the test passes, because if it stores the movies of each call',
+        'test that the storage works correctly,',
         setUp: () {
           //Todo: we didn't configure a behavior because we didn't make the call to [getMovie]
         },
         act: (cubit) {
           cubit.movies.addAll(movies);
-          cubit.getMovies();
+          if (cubit.movies.length >= 2) {
+            return cubit.getMovies();
+          } else {}
         },
         build: () => CubitmovieCubit(serviceMovi: mockServiceMovi),
         expect: () {
           return <CubitmovieState>[
             const CubitmovieState(statusmovie: MovieStatus.loading),
             CubitmovieState(movies: movies, statusmovie: MovieStatus.movies)
+          ];
+        },
+        tearDown: () {
+          mockCubimovie.close();
+        });
+
+    blocTest<CubitmovieCubit, CubitmovieState>(
+        'simulate another call because the condition of more than 2 elements stored is not met',
+        setUp: () {
+          when(() => mockServiceMovi.getMovie())
+              .thenAnswer((invocation) async => movies13);
+        },
+        act: (cubit) {
+          if (cubit.movies.length >= 3) {
+          } else {
+            when(() => mockServiceMovi.getMovie())
+                .thenAnswer((invocation) async => movies);
+            cubit.movies.addAll(movies13);
+            return cubit.getMovies();
+          }
+        },
+        build: () => CubitmovieCubit(serviceMovi: mockServiceMovi),
+        expect: () {
+          return <CubitmovieState>[
+            const CubitmovieState(statusmovie: MovieStatus.loading),
+            CubitmovieState(movies: movies13, statusmovie: MovieStatus.movies)
           ];
         },
         tearDown: () {

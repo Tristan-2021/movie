@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:movi/src/feature/movi/cubit/view_cubit/items_movi_recomend.dart';
 import 'package:movi/src/feature/movi/cubit/view_cubit/items_movi_top_rare.dart';

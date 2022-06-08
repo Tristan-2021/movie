@@ -17,4 +17,13 @@ var moviesfake = Movies(
 
 List<Movies> movies = [
   moviesfake,
+  moviesfake,
+];
+List<Movies> movies1 = [
+  moviesfake,
+];
+List<Movies> movies13 = [
+  moviesfake,
+  moviesfake,
+  moviesfake,
 ];
