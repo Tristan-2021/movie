@@ -18,7 +18,8 @@ Para las llamadas al servidor usamos Http, un paquete poderosos, rico en muchas 
 ## Estructura de Carpertas
 La siguiente estructrua de còdigo tiene 3 carpertas: Core,Feature,App. La priemra almacena partes del còdigo que seràn utiles como estilos de letra, los colores, el manejo de las excepciones, funciones. El segundo Feature, almacena la funcionalidad principal que es consumir lso servicios de la Apì de peliculas,  dentro de ella, tenemos la capa domain que tiene los objetos del negocio, de ahì tenemos data_Sorucesm que almacena las llamdas a la api. en la carpeta movil tenemos cubit como manejador de estados y cada cubit tiene asignado consumir un servicio especifico de la Api. y en la carpeta  View Cubit son los Widgets que maneja cada Cubit. La otra carpeta Widgets_Custom son los, widgets que son reutilizables.
 Por ùltimo la capa App que almacena la paàgina de inicio. 
-
+## Refactorizar
+Refactorizar los cubits, he pensado que hay otra forma de reutilizar lso Cubit de tener a 4 a tener solo 1
  
 ## Test 
 En nuestro caso implementamos los test unitarios y los test_bloc, con ello ya tenemos la seguridad de que nuestro còdigo ha sido probado y tranquilamente puede ir a producciòn. Pero por què  no manejamos los test Widgets, y se debe  por cuestiones de tiempo al  configuar y simular los comportamientos que estàn definidos en la capa UI que interactura con la capa Controlador y ahì con la capa Service.Pero lo haremos, en estos dias.
