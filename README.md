@@ -3,6 +3,9 @@
 A new Flutter project.
 
 ## Aplicacion de peliculas
+![Aquí la descripción de la App Peliculas](https://github.com/Tristan-2021/movie/blob/main/assets/images/movie.png)
+
+
 
 Este proyecto està construido en flutter con la version 3.0.0 y dart 2.17. 
 tiene la finalidad de buscar peliculas con el nombre y tiene dos Feets principales el uno muestra
@@ -25,6 +28,5 @@ Refactorizar los cubits, he pensado que hay otra forma de reutilizar lso Cubit d
 En nuestro caso implementamos los test unitarios y los test_bloc, con ello ya tenemos la seguridad de que nuestro còdigo ha sido probado y tranquilamente puede ir a producciòn. Pero por què  no manejamos los test Widgets, y se debe  por cuestiones de tiempo al  configuar y simular los comportamientos que estàn definidos en la capa UI que interactura con la capa Controlador y ahì con la capa Service.Pero lo haremos, en estos dias.
 ## Responsive
 el proyecto no està definido para la parte Web e Escritorio, en nuestro no amerita realizar para dichas plataformas.
-
 
 - 
