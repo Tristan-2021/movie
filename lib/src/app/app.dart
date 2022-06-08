@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:movi/src/feature/domain/repo_sources/data_sources.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_cast/cubit/cubitccast_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
+import 'package:movi/src/feature/movi/cubit/cubit_top_rare/cubit/cubittoprare_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
 
 class MyApp extends StatelessWidget {
@@ -28,6 +29,10 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => CubitccastCubit(context.read<ServiceMovi>()),
+          ),
+          BlocProvider(
+            create: (context) => CubittoprareCubit(context.read<ServiceMovi>())
+              ..getMoviesToprare(),
           ),
         ],
         child: MaterialApp(

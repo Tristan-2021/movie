@@ -16,23 +16,8 @@ class ServiceMovi {
   final Client httpClient;
   const ServiceMovi(this.httpClient);
   Future<List<Movies>> getMovie() async {
-    // try {
-    //   var data = await httpClient
-    //       .get(Uri.parse(ENV.baseUrl + ENV.token))
-    //       .catchError((e) {
-    //     return null;
-    //   });
-
-    //   var covnerdata = jsonDecode(data.body);
-    //   var date = Movi.fromJson(covnerdata);
-    //   return date.results;
-    // } catch (e, t) {
-    //   if (t is SocketException || t is TimeoutException) throw ErrorService();
-    //   print(e);
-
-    //   throw ErrorService();
-    // }
-
+    Uri.https(ENV.url, '3/movie/now_playing/',
+        {'api_key': ENV.token, 'language': ENV.idioma});
     var data = await httpClient
         .get(Uri.parse(ENV.baseUrl + ENV.token))
         .catchError((e) {
@@ -73,8 +58,6 @@ class ServiceMovi {
   }
 
   Future<VideoDetails> getDetails(String idpeli) async {
-    // ignore: unused_local_variable
-
     final url = Uri.https(ENV.url, '3/movie/$idpeli',
         {'api_key': ENV.token, 'language': ENV.idioma});
 
@@ -89,20 +72,21 @@ class ServiceMovi {
       throw MoviException('error Server');
     }
   }
+
+  Future<List<Movies>> getPopualr() async {
+    // ignore: unused_local_variable
+
+    final url = Uri.https(ENV.url, '3/movie/top_rated',
+        {'api_key': ENV.token, 'language': ENV.idioma});
+
+    var data = await httpClient.get(url).catchError((e) {
+      return null;
+    });
+    if (data.statusCode == 200) {
+      var movi = Movi.fromJson(json.decode(data.body));
+      return movi.results;
+    } else {
+      throw MoviException('error Server');
+    }
+  }
 }
-
-
-  // var data = await httpClient
-  //       .get(Uri.parse(ENV.baseUrl + ENV.token))
-  //       .catchError((e) {
-  //     return null;
-  //   });
-  //   print(data.statusCode);
-
-  //   if (data.statusCode == 200) {
-  //     var covnerdata = jsonDecode(data.body);
-  //     var date = Movi.fromJson(covnerdata);
-  //     return date.results;
-  //   } else {
-  //     throw ErrorService();
-  //   }

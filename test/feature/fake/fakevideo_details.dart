@@ -1,4 +1,6 @@
-import 'package:movi/src/feature/domain/model/company/company_state.dart';
+// ignore_for_file: file_names
+
+// ignore: unused_import
 import 'package:movi/src/feature/domain/model/moviedetails/movi_details_state.dart';
 
 const videoDetails = '''{

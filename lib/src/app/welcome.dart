@@ -96,7 +96,7 @@ class Welcome extends StatelessWidget {
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(17)),
                       ),
-                      child: const ItemsMoviRecomend(),
+                      child: const ItemsTopRare(),
                     )),
                   ],
                 ),

@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages, unnecessary_import, invalid_annotation_target
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:json_annotation/json_annotation.dart';

@@ -8,6 +8,8 @@ import 'package:movi/src/core/utls/get_iamge.dart';
 import 'package:movi/src/feature/domain/model/movies_state.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_cast/cubit/cubitccast_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
+import 'package:movi/src/feature/movi/cubit/cubit_top_rare/cubit/cubittoprare_cubit.dart';
+import 'package:movi/src/feature/movi/cubit/cubit_top_rare/cubit/cubittoprare_state.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_state.dart';
 
@@ -43,6 +45,35 @@ class ItemsMoviRecomend extends StatelessWidget {
           case MovieStatus.movidetail:
             return const Center(
               child: Text('no foutn'),
+            );
+        }
+      },
+    );
+  }
+}
+
+class ItemsTopRare extends StatelessWidget {
+  const ItemsTopRare({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<CubittoprareCubit, CubittoprareState>(
+      builder: (context, state) {
+        switch (state.statusmovie) {
+          case MovieTopRareStatus.loading:
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          case MovieTopRareStatus.movistoprare:
+            return ItemsMovies(movies: state.tapare!);
+
+          case MovieTopRareStatus.error:
+            return Center(
+              child: Text(state.error),
+            );
+          case MovieTopRareStatus.initial:
+            return const Center(
+              child: CircularProgressIndicator(),
             );
         }
       },

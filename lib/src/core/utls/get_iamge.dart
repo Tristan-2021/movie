@@ -6,20 +6,20 @@ String getPosterImg(String? profielPath) {
   }
 }
 
-String getGnro(List<dynamic>? list) {
-  String name = '';
-  if (list != null) {
-    for (var element in list) {
-      Map<String, dynamic> genro0 = list[1];
+// String getGnro(List<dynamic>? list) {
+//   String name = '';
+//   if (list != null) {
+//     for (var element in list) {
+//       Map<String, dynamic> genro0 = list[1];
 
-      name = genro0["name"];
-    }
-    return name;
-  } else {
-    return 'no unkown';
-  }
-  // [{id: 28, name: Acción}, {id: 12, name: Aventura}, {id: 35, name: Comedia}],
-}
+//       name = genro0["name"];
+//     }
+//     return name;
+//   } else {
+//     return 'no unkown';
+//   }
+//   // [{id: 28, name: Acción}, {id: 12, name: Aventura}, {id: 35, name: Comedia}],
+// }
 
 // String getCompany(List<dynamic>? list) {
 //   String name = '';

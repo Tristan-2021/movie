@@ -23,8 +23,7 @@ mixin _$Movies {
   bool get adult => throw _privateConstructorUsedError;
   String get backdropPath => throw _privateConstructorUsedError;
   List<int> get genreIds => throw _privateConstructorUsedError;
-  int get id =>
-      throw _privateConstructorUsedError; //required OriginalLanguage originalLanguage,
+  int get id => throw _privateConstructorUsedError;
   String get originalTitle => throw _privateConstructorUsedError;
   String get overview => throw _privateConstructorUsedError;
   double get popularity => throw _privateConstructorUsedError;
@@ -280,7 +279,6 @@ class _$_Movies implements _Movies {
 
   @override
   final int id;
-//required OriginalLanguage originalLanguage,
   @override
   final String originalTitle;
   @override
@@ -386,7 +384,7 @@ abstract class _Movies implements Movies {
   List<int> get genreIds => throw _privateConstructorUsedError;
   @override
   int get id => throw _privateConstructorUsedError;
-  @override //required OriginalLanguage originalLanguage,
+  @override
   String get originalTitle => throw _privateConstructorUsedError;
   @override
   String get overview => throw _privateConstructorUsedError;

@@ -24,10 +24,10 @@ Map<String, dynamic> _$MoviToJson(Movi instance) => <String, dynamic>{
 
 OriginalLanguage _$OriginalLanguageFromJson(Map<String, dynamic> json) =>
     OriginalLanguage(
-      originalLanguageValues: json['originalLanguageValues'] as String,
+      originalLanguageValues: json['original_language_values'] as String,
     );
 
 Map<String, dynamic> _$OriginalLanguageToJson(OriginalLanguage instance) =>
     <String, dynamic>{
-      'originalLanguageValues': instance.originalLanguageValues,
+      'original_language_values': instance.originalLanguageValues,
     };
