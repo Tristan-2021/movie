@@ -38,12 +38,11 @@ class ServiceMovi {
     }
     if (data.statusCode == 200) {
       var covnerdata = jsonDecode(data.body);
-      print(data.statusCode);
 
       var date = Movi.fromJson(covnerdata);
       return date.results;
     } else {
-      throw MoviException('error Server');
+      throw const MoviException('error Server');
     }
   }
 
@@ -58,7 +57,7 @@ class ServiceMovi {
       var actors = Actor.fromJson(json.decode(data.body));
       return actors.cast;
     } else {
-      throw MoviException('error Server');
+      throw const MoviException('error Server');
     }
   }
 
@@ -74,7 +73,7 @@ class ServiceMovi {
       var videodetails = VideoDetails.fromJson(json.decode(data.body));
       return videodetails;
     } else {
-      throw MoviException('error Server');
+      throw const MoviException('error Server');
     }
   }
 
@@ -97,7 +96,7 @@ class ServiceMovi {
       var movi = Movi.fromJson(json.decode(data.body));
       return movi.results;
     } else {
-      throw MoviException('error Server');
+      throw const MoviException('error Server');
     }
   }
 

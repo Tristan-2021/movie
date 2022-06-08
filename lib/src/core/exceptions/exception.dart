@@ -1,7 +1,7 @@
 class ErrorService implements Exception {}
 
 class MoviException implements Exception {
-  MoviException(this.errors);
+  const MoviException(this.errors);
 
   final String errors;
 }
