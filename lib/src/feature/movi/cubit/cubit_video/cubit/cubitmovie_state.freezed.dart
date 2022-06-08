@@ -161,7 +161,7 @@ class _$_CubitmovieState implements _CubitmovieState {
       {final List<Movies>? movies,
       final List<Cast>? cast,
       this.videodetail,
-      this.statusmovie = MovieStatus.initial,
+      this.statusmovie = MovieStatus.loading,
       this.error = ''})
       : _movies = movies,
         _cast = cast;

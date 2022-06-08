@@ -8,13 +8,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'cubitmovie_state.freezed.dart';
 
 enum MovieStatus {
-  initial,
   loading,
-
   movies,
-  cast,
-  movidetail,
-
   error;
 }
 
@@ -24,7 +19,7 @@ class CubitmovieState with _$CubitmovieState {
     final List<Movies>? movies,
     final List<Cast>? cast,
     final VideoDetails? videodetail,
-    @Default(MovieStatus.initial) MovieStatus statusmovie,
+    @Default(MovieStatus.loading) MovieStatus statusmovie,
     @Default('') error,
   }) = _CubitmovieState;
 }

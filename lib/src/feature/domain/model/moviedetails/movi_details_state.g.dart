@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: non_constant_identifier_names
-
 part of 'movi_details_state.dart';
 
 // **************************************************************************
@@ -63,6 +61,6 @@ Map<String, dynamic> _$$_VideoDetailsToJson(_$_VideoDetails instance) =>
       'tagline': instance.tagline,
       'title': instance.title,
       'video': instance.video,
-      'vote_average': instance.voteAverage,
+      'vote_Average': instance.voteAverage,
       'vote_count': instance.voteCount,
     };

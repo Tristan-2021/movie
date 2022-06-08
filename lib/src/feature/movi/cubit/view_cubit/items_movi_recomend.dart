@@ -38,18 +38,6 @@ class ItemsMoviRecomend extends StatelessWidget {
                 ],
               ),
             );
-          case MovieStatus.initial:
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          case MovieStatus.cast:
-            return const Center(
-              child: Text('no foutn'),
-            );
-          case MovieStatus.movidetail:
-            return const Center(
-              child: Text('no foutn'),
-            );
         }
       },
     );

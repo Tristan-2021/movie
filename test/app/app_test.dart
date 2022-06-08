@@ -65,10 +65,6 @@ void main() {
             ),
             BlocProvider(
               create: (context) =>
-                  CubitccastCubit(context.read<MockServiceMovi>()),
-            ),
-            BlocProvider(
-              create: (context) =>
                   CubittoprareCubit(context.read<MockServiceMovi>())
                     ..getMoviesToprare(),
             ),
@@ -98,10 +94,6 @@ void main() {
             BlocProvider(
               create: (context) =>
                   MovidetailCubit(context.read<MockServiceMovi>()),
-            ),
-            BlocProvider(
-              create: (context) =>
-                  CubitccastCubit(context.read<MockServiceMovi>()),
             ),
             BlocProvider(
               create: (context) =>
@@ -135,10 +127,10 @@ void main() {
               create: (context) =>
                   MovidetailCubit(context.read<MockServiceMovi>()),
             ),
-            BlocProvider(
-              create: (context) =>
-                  CubitccastCubit(context.read<MockServiceMovi>()),
-            ),
+            // BlocProvider(
+            //   create: (context) =>
+            //       CubitccastCubit(context.read<MockServiceMovi>()),
+            // ),
             BlocProvider(
               create: (context) =>
                   CubittoprareCubit(context.read<MockServiceMovi>())

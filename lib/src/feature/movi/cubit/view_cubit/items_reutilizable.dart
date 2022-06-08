@@ -10,7 +10,7 @@ import 'package:movi/src/feature/movi/cubit/cubit_top_rare/cubit/cubittoprare_cu
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/view_cubit/movie_detail_view.dart';
 
-class ItemsMovies extends StatelessWidget {
+class ItemsMovies extends StatefulWidget {
   final List<Movies> movies;
   final String rareOrRecomen;
   const ItemsMovies({
@@ -20,13 +20,20 @@ class ItemsMovies extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<ItemsMovies> createState() => _ItemsMoviesState();
+}
+
+class _ItemsMoviesState extends State<ItemsMovies> {
+  PageController controoler =
+      PageController(initialPage: 1, viewportFraction: 0.44);
+  @override
   Widget build(BuildContext context) {
     return PageView.builder(
-        controller: PageController(initialPage: 1, viewportFraction: 0.44),
-        itemCount: movies.length,
+        controller: controoler,
+        itemCount: widget.movies.length,
         onPageChanged: (index) {
-          if (index == movies.length - 1) {
-            if (rareOrRecomen == 'rare') {
+          if (index == widget.movies.length - 1) {
+            if (widget.rareOrRecomen == 'rare') {
               context.read<CubittoprareCubit>().getMoviesToprare();
             } else {
               context.read<CubitmovieCubit>().getMovies();
@@ -34,23 +41,23 @@ class ItemsMovies extends StatelessWidget {
           }
         },
         itemBuilder: (context, index) {
-          var imagen = movies[index].posterPath;
+          var imagen = widget.movies[index].posterPath;
           return GestureDetector(
             onTap: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (_) => MoviDetails(
-                            movie: movies[index],
+                            movie: widget.movies[index],
                           )));
 
               context
                   .read<CubitccastCubit>()
-                  .getActors(movies[index].id.toString());
+                  .getActors(widget.movies[index].id.toString());
 
               context
                   .read<MovidetailCubit>()
-                  .getVideoDetails(movies[index].id.toString());
+                  .getVideoDetails(widget.movies[index].id.toString());
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -77,7 +84,7 @@ class ItemsMovies extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0, top: 10),
                   child: Text(
-                    movies[index].title,
+                    widget.movies[index].title,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
