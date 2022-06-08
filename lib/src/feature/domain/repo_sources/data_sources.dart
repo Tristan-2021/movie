@@ -112,7 +112,7 @@ class ServiceMovi {
       var movi = Movi.fromJson(json.decode(data.body));
       return movi.results;
     } else {
-      throw MoviException('Sorry..! we can t find your movie');
+      throw const MoviException('Sorry..! we can t find your movie');
     }
   }
 }

@@ -44,7 +44,7 @@ void main() {
     blocTest<MovidetailCubit, MovidetailState>(' MovieDetailsStatus.error',
         setUp: () {
           when(() => mockCubimoviedetails.getVideoDetails('12353'))
-              .thenThrow(MoviException('error Server'));
+              .thenThrow(const MoviException('error Server'));
         },
         act: (cubit) {
           cubit.getVideoDetails('12353');

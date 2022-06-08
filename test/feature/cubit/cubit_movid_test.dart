@@ -92,7 +92,7 @@ void main() {
         'return data and MovieStatus.error',
         setUp: () {
           when(() => mockServiceMovi.getMovie())
-              .thenThrow(MoviException('error Server'));
+              .thenThrow(const MoviException('error Server'));
         },
         act: (cubit) {
           cubit.getMovies();

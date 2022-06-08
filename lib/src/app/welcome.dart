@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:movi/src/feature/movi/cubit/view_cubit/items_movi_recomend.dart';
 import 'package:movi/src/feature/movi/cubit/view_cubit/items_movi_top_rare.dart';
@@ -14,6 +12,7 @@ class Welcome extends StatelessWidget {
       backgroundColor: Theme.of(context).backgroundColor,
       body: SafeArea(
         child: Column(
+          key: const Key('_column_principal'),
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SearchMovie(),
@@ -26,49 +25,50 @@ class Welcome extends StatelessWidget {
                         topLeft: Radius.circular(17),
                         topRight: Radius.circular(17)),
                     color: Theme.of(context).cardColor),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          left: 10.0, bottom: 20.0, right: 20, top: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Expanded(
-                            child: GestureDetector(
-                              onTap: () {},
-                              child: Text(
-                                'RECOMMENDED FOR YOU ',
-                                style: Theme.of(context).textTheme.headline2,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 10.0, bottom: 20.0, right: 20, top: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () {},
+                                child: Text(
+                                  'RECOMMENDED FOR YOU ',
+                                  style: Theme.of(context).textTheme.headline2,
+                                ),
                               ),
                             ),
-                          ),
-                          Text(
-                            'Sell all',
-                            style: Theme.of(context).textTheme.headline2,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                        child: Container(
-                            width: double.infinity,
-                            margin: const EdgeInsets.all(5.0),
-                            decoration: const BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(17)),
+                            Text(
+                              'Sell all',
+                              style: Theme.of(context).textTheme.headline2,
                             ),
-                            child: const ItemsMoviRecomend())),
-                    Expanded(
-                        child: Container(
-                      margin: const EdgeInsets.all(5.0),
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(17)),
+                          ],
+                        ),
                       ),
-                      child: const ItemsTopRare(),
-                    )),
-                  ],
+                      Container(
+                          height: 200,
+                          width: double.infinity,
+                          margin: const EdgeInsets.all(5.0),
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(17)),
+                          ),
+                          child: const ItemsMoviRecomend()),
+                      Container(
+                        height: 200,
+                        margin: const EdgeInsets.all(5.0),
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(17)),
+                        ),
+                        child: const ItemsTopRare(),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             )
