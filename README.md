@@ -26,6 +26,7 @@ Refactorizar los cubits, he pensado que hay otra forma de reutilizar lso Cubit d
  
 ## Test 
 En nuestro caso implementamos los test unitarios y los test_bloc, con ello ya tenemos la seguridad de que nuestro còdigo ha sido probado y tranquilamente puede ir a producciòn. Pero por què  no manejamos los test Widgets, y se debe  por cuestiones de tiempo al  configuar y simular los comportamientos que estàn definidos en la capa UI que interactura con la capa Controlador y ahì con la capa Service.Pero lo haremos, en estos dias.
+Ya tenemos TestWidgets, por el momento està probado App y Welcome, pronto subiremos lso avances.
 ## Responsive
 el proyecto no està definido para la parte Web e Escritorio, en nuestro no amerita realizar para dichas plataformas.
 
