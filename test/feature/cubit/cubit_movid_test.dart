@@ -41,6 +41,26 @@ void main() {
         });
 
     blocTest<CubitmovieCubit, CubitmovieState>(
+        'the test passes, because if it stores the movies of each call',
+        setUp: () {
+          //Todo: we didn't configure a behavior because we didn't make the call to [getMovie]
+        },
+        act: (cubit) {
+          cubit.movies.addAll(movies);
+          cubit.getMovies();
+        },
+        build: () => CubitmovieCubit(serviceMovi: mockServiceMovi),
+        expect: () {
+          return <CubitmovieState>[
+            const CubitmovieState(statusmovie: MovieStatus.loading),
+            CubitmovieState(movies: movies, statusmovie: MovieStatus.movies)
+          ];
+        },
+        tearDown: () {
+          mockCubimovie.close();
+        });
+
+    blocTest<CubitmovieCubit, CubitmovieState>(
         'return data and MovieStatus.error',
         setUp: () {
           when(() => mockServiceMovi.getMovie())

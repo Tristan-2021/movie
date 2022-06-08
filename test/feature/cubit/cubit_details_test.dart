@@ -41,7 +41,6 @@ void main() {
         tearDown: () {
           mockCubimoviedetails.close();
         });
-
     blocTest<MovidetailCubit, MovidetailState>(' MovieDetailsStatus.error',
         setUp: () {
           when(() => mockCubimoviedetails.getVideoDetails('12353'))

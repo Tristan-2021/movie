@@ -36,15 +36,8 @@ class ServiceMovi {
   }
 
   Future<List<Cast>> getActor(String idpeli) async {
-    // ignore: unused_local_variable
     final url = Uri.https(ENV.url, '3/movie/$idpeli/credits',
         {'api_key': ENV.token, 'language': ENV.idioma});
-    //   try {
-
-    //   } catch (e) {
-    //     throw ErrorService();
-    //   }
-    // }
 
     var data = await httpClient.get(url).catchError((e) {
       return null;
@@ -74,8 +67,6 @@ class ServiceMovi {
   }
 
   Future<List<Movies>> getPopualr() async {
-    // ignore: unused_local_variable
-
     final url = Uri.https(ENV.url, '3/movie/top_rated',
         {'api_key': ENV.token, 'language': ENV.idioma});
 
@@ -87,6 +78,22 @@ class ServiceMovi {
       return movi.results;
     } else {
       throw MoviException('error Server');
+    }
+  }
+
+  Future<List<Movies>> getSearch(String search) async {
+    final url = Uri.https(ENV.url, '3/$search/movie/',
+        {'api_key': ENV.token, 'language': ENV.idioma});
+
+    var data = await httpClient.get(url).catchError((e) {
+      return null;
+    });
+    print(data.body);
+    if (data.statusCode == 200) {
+      var movi = Movi.fromJson(json.decode(data.body));
+      return movi.results;
+    } else {
+      throw MoviException('Sorry..! we can t find your movie');
     }
   }
 }
