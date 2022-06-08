@@ -14,16 +14,28 @@ import 'package:movi/src/feature/domain/model/movies_state.dart';
 
 class ServiceMovi {
   final Client httpClient;
-  const ServiceMovi(this.httpClient);
+  ServiceMovi(this.httpClient);
+  int indexmovi = 0;
   Future<List<Movies>> getMovie() async {
-    Uri.https(ENV.url, '3/movie/now_playing/',
-        {'api_key': ENV.token, 'language': ENV.idioma});
+    indexmovi++;
+
+    Uri.https(ENV.url, '3/movie/now_playing/', {
+      'api_key': ENV.token,
+      'language': ENV.idioma,
+      'page': indexmovi.toString()
+    });
+
+    print('que valor este numero $indexmovi ');
+
     var data = await httpClient
         .get(Uri.parse(ENV.baseUrl + ENV.token))
         .catchError((e) {
       return null;
     });
 
+    if (indexrare == 4) {
+      indexrare = 0;
+    }
     if (data.statusCode == 200) {
       var covnerdata = jsonDecode(data.body);
       print(data.statusCode);
@@ -66,9 +78,17 @@ class ServiceMovi {
     }
   }
 
-  Future<List<Movies>> getPopualr() async {
-    final url = Uri.https(ENV.url, '3/movie/top_rated',
-        {'api_key': ENV.token, 'language': ENV.idioma});
+  int indexrare = 1;
+  Future<List<Movies>> getToprate() async {
+    indexrare++;
+    final url = Uri.https(ENV.url, '3/movie/top_rated', {
+      'api_key': ENV.token,
+      'language': ENV.idioma,
+      'page': indexrare.toString()
+    });
+    if (indexrare == 4) {
+      indexrare = 0;
+    }
 
     var data = await httpClient.get(url).catchError((e) {
       return null;

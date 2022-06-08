@@ -15,7 +15,6 @@ class _SearchMovieState extends State<SearchMovie> {
   sumit(
     value,
   ) {
-    print('valor a bsucar $value ');
     context.read<CubitmovieCubit>().getMoviesSearch(value);
   }
 

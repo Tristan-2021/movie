@@ -6,13 +6,17 @@ import 'package:movi/src/core/utls/get_iamge.dart';
 import 'package:movi/src/feature/domain/model/movies_state.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_cast/cubit/cubitccast_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
+import 'package:movi/src/feature/movi/cubit/cubit_top_rare/cubit/cubittoprare_cubit.dart';
+import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/view_cubit/movie_detail_view.dart';
 
 class ItemsMovies extends StatelessWidget {
   final List<Movies> movies;
+  final String rareOrRecomen;
   const ItemsMovies({
     Key? key,
     required this.movies,
+    required this.rareOrRecomen,
   }) : super(key: key);
 
   @override
@@ -20,6 +24,15 @@ class ItemsMovies extends StatelessWidget {
     return PageView.builder(
         controller: PageController(initialPage: 1, viewportFraction: 0.44),
         itemCount: movies.length,
+        onPageChanged: (index) {
+          if (index == movies.length - 1) {
+            if (rareOrRecomen == 'rare') {
+              context.read<CubittoprareCubit>().getMoviesToprare();
+            } else {
+              context.read<CubitmovieCubit>().getMovies();
+            }
+          }
+        },
         itemBuilder: (context, index) {
           var imagen = movies[index].posterPath;
           return GestureDetector(

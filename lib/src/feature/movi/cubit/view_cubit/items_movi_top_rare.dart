@@ -18,7 +18,10 @@ class ItemsTopRare extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           case MovieTopRareStatus.movistoprare:
-            return ItemsMovies(movies: state.tapare!);
+            return ItemsMovies(
+              movies: state.tapare!,
+              rareOrRecomen: 'rare',
+            );
 
           case MovieTopRareStatus.error:
             return Center(

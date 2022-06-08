@@ -20,7 +20,10 @@ class ItemsMoviRecomend extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           case MovieStatus.movies:
-            return ItemsMovies(movies: state.movies!);
+            return ItemsMovies(
+              movies: state.movies!,
+              rareOrRecomen: 'reco',
+            );
 
           case MovieStatus.error:
             return Center(

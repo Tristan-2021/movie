@@ -17,11 +17,21 @@ class CubitmovieCubit extends Cubit<CubitmovieState> {
     ));
 
     try {
+      if (movies.length >= 60) {
+        emit(state.copyWith(statusmovie: MovieStatus.movies, movies: movies));
+      } else {
+        var date = await serviceMovi.getMovie();
+
+        movies.addAll([...date]);
+        emit(state.copyWith(statusmovie: MovieStatus.movies, movies: date));
+      }
+
       if (movies.isNotEmpty) {
         emit(state.copyWith(statusmovie: MovieStatus.movies, movies: movies));
       } else {
         var date = await serviceMovi.getMovie();
         movies.addAll(date);
+
         emit(state.copyWith(statusmovie: MovieStatus.movies, movies: date));
       }
     } on MoviException catch (e) {
