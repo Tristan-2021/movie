@@ -8,6 +8,7 @@ class Welcome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double zise = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: SafeArea(
@@ -51,7 +52,7 @@ class Welcome extends StatelessWidget {
                         ),
                       ),
                       Container(
-                          height: 200,
+                          height: zise / 3.5,
                           width: double.infinity,
                           margin: const EdgeInsets.all(5.0),
                           decoration: const BoxDecoration(
@@ -59,7 +60,7 @@ class Welcome extends StatelessWidget {
                           ),
                           child: const ItemsMoviRecomend()),
                       Container(
-                        height: 200,
+                        height: zise / 3.5,
                         margin: const EdgeInsets.all(5.0),
                         width: double.infinity,
                         decoration: const BoxDecoration(
