@@ -20,7 +20,7 @@ class ItemsMoviRecomend extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           case MovieStatus.movies:
-            return ItemsMovies(
+            return ItemsMoviesReutilizable(
               movies: state.movies!,
               rareOrRecomen: 'reco',
             );
@@ -31,6 +31,7 @@ class ItemsMoviRecomend extends StatelessWidget {
                 children: [
                   Text(state.error),
                   TextButton(
+                      key: const Key('ontap_buttons_getmovies'),
                       onPressed: () {
                         context.read<CubitmovieCubit>().getMovies();
                       },

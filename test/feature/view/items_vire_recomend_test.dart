@@ -50,9 +50,6 @@ void main() {
 
     testWidgets('Emist State  MovieStatus [MovieStatus.movies]',
         (tester) async {
-      // when(() => mockCubiMovie.state).thenAnswer((_) => const CubitmovieState(
-      //       statusmovie: MovieStatus.loading,
-      //     ));
       when(() => mockCubiMovie.state).thenAnswer((_) =>
           CubitmovieState(statusmovie: MovieStatus.movies, movies: movies));
 
@@ -63,15 +60,11 @@ void main() {
           home: ItemsMoviRecomend(),
         ),
       ));
-      // await tester.pump();
-      // expect(find.byType(CircularProgressIndicator), findsOneWidget);
+
       await tester.pump();
-      expect(find.byType(ItemsMovies), findsOneWidget);
+      expect(find.byType(ItemsMoviesReutilizable), findsOneWidget);
     });
     testWidgets('Emist State  MovieStatus [MovieStatus.error]', (tester) async {
-      // when(() => mockCubiMovie.state).thenAnswer((_) => const CubitmovieState(
-      //       statusmovie: MovieStatus.loading,
-      //     ));
       when(() => mockCubiMovie.state).thenAnswer((_) => const CubitmovieState(
             statusmovie: MovieStatus.error,
           ));
@@ -83,10 +76,29 @@ void main() {
           home: ItemsMoviRecomend(),
         ),
       ));
-      // await tester.pump();
-      // expect(find.byType(CircularProgressIndicator), findsOneWidget);
+
       await tester.pump();
       expect(find.byType(Column), findsOneWidget);
+    });
+    testWidgets('Emist State  MovieStatus [MovieStatus.error]  OnTap Buttons',
+        (tester) async {
+      when(() => mockCubiMovie.state).thenAnswer((_) => const CubitmovieState(
+            statusmovie: MovieStatus.error,
+          ));
+      when(() => mockCubiMovie.getMovies()).thenAnswer((_) => Future.value());
+
+      await tester.pumpWidget(BlocProvider<CubitmovieCubit>(
+        lazy: false,
+        create: (context) => mockCubiMovie,
+        child: const MaterialApp(
+          home: ItemsMoviRecomend(),
+        ),
+      ));
+
+      await tester.pump();
+      await tester.tap(find.byKey(const Key('ontap_buttons_getmovies')));
+
+      verify(() => mockCubiMovie.getMovies()).called(1);
     });
   });
 }

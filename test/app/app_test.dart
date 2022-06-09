@@ -4,7 +4,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:movi/src/app/app.dart';
 import 'package:movi/src/app/welcome.dart';
-import 'package:movi/src/feature/movi/cubit/cubit_cast/cubit/cubitccast_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_top_rare/cubit/cubittoprare_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_top_rare/cubit/cubittoprare_state.dart';
@@ -18,7 +17,6 @@ import '../feature/fake/mocks.dart';
 
 void main() {
   // late final MockServiceMovi mockServiceMovi;
-  // late final MockCubiCast mockCubiCast;
   // late final MockCubiMovieDetails mockCubiMovieDetails;
   late final MockCubiToprare mockCubiToprare;
   late final MockCubiMovie mockCubiMovie;

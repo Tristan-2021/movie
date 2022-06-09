@@ -17,7 +17,7 @@ class CubitmovieCubit extends Cubit<CubitmovieState> {
     ));
 
     try {
-      if (movies.length >= 3) {
+      if (movies.length >= 60) {
         emit(state.copyWith(statusmovie: MovieStatus.movies, movies: movies));
       } else {
         var date = await serviceMovi.getMovie();

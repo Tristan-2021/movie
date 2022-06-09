@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movi/src/app/welcome.dart';
+import 'package:movi/src/core/router/routes.dart';
 import 'package:movi/src/core/styles/colors.dart';
 import 'package:http/http.dart' as http;
 import 'package:movi/src/feature/domain/repo_sources/data_sources.dart';
@@ -35,8 +36,10 @@ class MyApp extends StatelessWidget {
               ..getMoviesToprare(),
           ),
         ],
-        child: MaterialApp(
+        child: MaterialApp.router(
           debugShowCheckedModeBanner: false,
+          routeInformationParser: router.routeInformationParser,
+          routerDelegate: router.routerDelegate,
           title: 'Flutter Demo',
           theme: ThemeData().copyWith(
               backgroundColor: ColorsMovie.colorapbar,
@@ -78,7 +81,7 @@ class MyApp extends StatelessWidget {
                   wordSpacing: 0.4,
                 ),
               )),
-          home: const Welcome(),
+          // home: const Welcome(),
         ),
       ),
     );
