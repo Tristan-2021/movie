@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movi/src/core/utls/assets.dart';
 import 'package:movi/src/core/utls/get_iamge.dart';
+import 'package:movi/src/feature/domain/model/moviedetails/movi_details_state.dart';
 import 'package:movi/src/feature/domain/model/movies_state.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_cast/cubit/cubitccast_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
@@ -10,8 +11,9 @@ import 'package:movi/src/feature/movi/cubit/cubit_top_rare/cubit/cubittoprare_cu
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/view_cubit/movie_detail_view.dart';
 
-class ItemsMoviesReutilizable extends StatefulWidget {
-  final List<Movies> movies;
+class ItemsMoviesReutilizable<T> extends StatefulWidget {
+  final List<T> movies;
+
   final String rareOrRecomen;
   const ItemsMoviesReutilizable({
     Key? key,
@@ -24,9 +26,14 @@ class ItemsMoviesReutilizable extends StatefulWidget {
       _ItemsMoviesReutilizableState();
 }
 
-class _ItemsMoviesReutilizableState extends State<ItemsMoviesReutilizable> {
+class _ItemsMoviesReutilizableState<T>
+    extends State<ItemsMoviesReutilizable<T>> {
   PageController controoler =
       PageController(initialPage: 1, viewportFraction: 0.44);
+
+  List<Movies>? imagemovi;
+  List<SearchVideoDetails>? searchmovi;
+
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
@@ -42,7 +49,12 @@ class _ItemsMoviesReutilizableState extends State<ItemsMoviesReutilizable> {
           }
         },
         itemBuilder: (context, index) {
-          var imagen = widget.movies[index].posterPath;
+          if (widget.movies[index] is SearchVideoDetails) {
+            searchmovi = widget.movies as List<SearchVideoDetails>;
+          } else {
+            imagemovi = widget.movies as List<Movies>;
+          }
+
           return Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -53,41 +65,51 @@ class _ItemsMoviesReutilizableState extends State<ItemsMoviesReutilizable> {
                     height: 160,
                     width: 140,
                     child: GestureDetector(
-                      key: Key('View_movi_$index'),
-                      onTap: () {
-                        print('imprimir estos eventos $index ');
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => MoviDetails(
-                                      movie: widget.movies[index],
-                                    )));
+                        key: Key('View_movi_$index'),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => MoviDetails(
+                                        moviepath:
+                                            imagemovi?[index].posterPath ??
+                                                searchmovi![index].posterPath!,
+                                      )));
 
-                        context
-                            .read<CubitccastCubit>()
-                            .getActors(widget.movies[index].id.toString());
+                          context.read<CubitccastCubit>().getActors(
+                              imagemovi?[index].id ?? searchmovi![index].id);
 
-                        context.read<MovidetailCubit>().getVideoDetails(
-                            widget.movies[index].id.toString());
-                      },
-                      child: CachedNetworkImage(
-                        fit: BoxFit.cover,
-                        imageUrl: getPosterImg(imagen),
-                        placeholder: (context, url) => Image.asset(
-                          assetsimage,
+                          context.read<MovidetailCubit>().getVideoDetails(
+                              imagemovi?[index].id ?? searchmovi![index].id);
+
+                          // String brakoc =
+                          //     '${widget.movies[index].backdropPath!}/';
+                          // String brakociD = '${widget.movies[index].id}';
+
+                          //context.go('/movie/brakoc');
+                          //context.goNamed('movie', params: {'find': brakociD});
+                        },
+                        child: CachedNetworkImage(
                           fit: BoxFit.cover,
-                        ),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
-                      ),
-                    ),
+                          imageUrl: widget.movies is List<Movies>
+                              ? getPosterImg(imagemovi![index].posterPath)
+                              : getPosterImg(searchmovi![index].posterPath),
+                          placeholder: (context, url) => Image.asset(
+                            assetsimage,
+                            fit: BoxFit.cover,
+                          ),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
+                        )),
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, top: 10),
                 child: Text(
-                  widget.movies[index].title,
+                  widget.movies is List<Movies>
+                      ? imagemovi![index].title
+                      : searchmovi![index].title,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -107,7 +129,7 @@ class _ItemsMoviesReutilizableState extends State<ItemsMoviesReutilizable> {
                       )
                   ],
                 ),
-              )
+              ),
             ],
           );
         });

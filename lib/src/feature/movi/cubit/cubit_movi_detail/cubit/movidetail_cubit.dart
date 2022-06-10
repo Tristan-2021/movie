@@ -11,12 +11,12 @@ class MovidetailCubit extends Cubit<MovidetailState> {
 
   MovidetailCubit(this.serviceMovi) : super(const MovidetailState());
 
-  Future<void> getVideoDetails(String idMovi) async {
+  Future<void> getVideoDetails(int idMovi) async {
     emit(state.copyWith(
       statusmovie: MovieDetailStatus.loading,
     ));
     try {
-      var videodetails = await serviceMovi.getDetails(idMovi);
+      var videodetails = await serviceMovi.getDetails(idMovi.toString());
 
       emit(state.copyWith(
           statusmovie: MovieDetailStatus.movidetail,

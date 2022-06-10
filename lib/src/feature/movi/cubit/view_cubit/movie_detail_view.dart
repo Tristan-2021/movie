@@ -15,9 +15,9 @@ import 'package:movi/src/feature/movi/cubit/view_cubit/cast.dart';
 import 'package:movi/src/feature/movi/widget_custon/padding_text.dart';
 
 class MoviDetails extends StatelessWidget {
-  final Movies movie;
+  final String moviepath;
 
-  const MoviDetails({Key? key, required this.movie}) : super(key: key);
+  const MoviDetails({Key? key, required this.moviepath}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class MoviDetails extends StatelessWidget {
                 ),
                 child: CachedNetworkImage(
                   fit: BoxFit.cover,
-                  imageUrl: getPosterImg(movie.posterPath),
+                  imageUrl: getPosterImg(moviepath),
                   placeholder: (context, url) => Image.asset(
                     assetsimage,
                     fit: BoxFit.cover,
@@ -74,7 +74,6 @@ class MoviDetails extends StatelessWidget {
 
                   case MovieDetailStatus.movidetail:
                     return VideDetailsBody(
-                      movie: movie,
                       moviedetails: state.videodetail!,
                     );
 
@@ -97,11 +96,9 @@ class MoviDetails extends StatelessWidget {
 class VideDetailsBody extends StatelessWidget {
   const VideDetailsBody({
     Key? key,
-    required this.movie,
     required this.moviedetails,
   }) : super(key: key);
 
-  final Movies movie;
   final VideoDetails moviedetails;
 
   @override
@@ -115,7 +112,7 @@ class VideDetailsBody extends StatelessWidget {
                 width: 230,
                 child: PaddingText(
                   style: Theme.of(context).textTheme.headline5!,
-                  movie: movie.title,
+                  movie: moviedetails.title,
                   top: 20,
                   left: 15,
                   right: 15,
@@ -168,14 +165,13 @@ class VideDetailsBody extends StatelessWidget {
             left: 15,
             top: 15,
             right: 15,
-            movie: movie.overview,
+            movie: moviedetails.overview,
             style: Theme.of(context).textTheme.headline3!,
           ),
           Divider(),
           SingleChildScrollView(
             child: CastWidget(
               movidetails: moviedetails,
-              movil: movie,
             ),
           )
         ],

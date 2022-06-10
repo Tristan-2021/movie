@@ -1,4 +1,4 @@
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: depend_on_referenced_packages, unrelated_type_equality_checks
 
 import 'package:bloc/bloc.dart';
 import 'package:movi/src/core/exceptions/exception.dart';
@@ -48,11 +48,16 @@ class CubitmovieCubit extends Cubit<CubitmovieState> {
 
     try {
       var date = await serviceMovi.getSearch(search);
-      emit(state.copyWith(statusmovie: MovieStatus.movies, movies: date));
+      emit(state.copyWith(
+          statusmovie: MovieStatus.searchmovie, videodetail: date));
     } on MoviException catch (e) {
       emit(state.copyWith(statusmovie: MovieStatus.error, error: e.errors));
     } catch (e) {
       emit(state.copyWith(statusmovie: MovieStatus.error, error: e.toString()));
     }
+  }
+
+  Movies searchMovieList(String id) {
+    return movies.firstWhere((element) => element.id == id);
   }
 }
