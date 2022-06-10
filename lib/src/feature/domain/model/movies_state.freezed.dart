@@ -21,17 +21,24 @@ Movies _$MoviesFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Movies {
   bool get adult => throw _privateConstructorUsedError;
+  @JsonKey(name: 'backdrop_path')
   String get backdropPath => throw _privateConstructorUsedError;
+  @JsonKey(name: 'genre_ids')
   List<int> get genreIds => throw _privateConstructorUsedError;
   int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'original_title')
   String get originalTitle => throw _privateConstructorUsedError;
   String get overview => throw _privateConstructorUsedError;
   double get popularity => throw _privateConstructorUsedError;
+  @JsonKey(name: 'poster_path')
   String get posterPath => throw _privateConstructorUsedError;
+  @JsonKey(name: 'release_date')
   DateTime get releaseDate => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   bool get video => throw _privateConstructorUsedError;
+  @JsonKey(name: 'vote_average')
   double get voteAverage => throw _privateConstructorUsedError;
+  @JsonKey(name: 'vote_count')
   int get voteCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,18 +52,18 @@ abstract class $MoviesCopyWith<$Res> {
       _$MoviesCopyWithImpl<$Res>;
   $Res call(
       {bool adult,
-      String backdropPath,
-      List<int> genreIds,
+      @JsonKey(name: 'backdrop_path') String backdropPath,
+      @JsonKey(name: 'genre_ids') List<int> genreIds,
       int id,
-      String originalTitle,
+      @JsonKey(name: 'original_title') String originalTitle,
       String overview,
       double popularity,
-      String posterPath,
-      DateTime releaseDate,
+      @JsonKey(name: 'poster_path') String posterPath,
+      @JsonKey(name: 'release_date') DateTime releaseDate,
       String title,
       bool video,
-      double voteAverage,
-      int voteCount});
+      @JsonKey(name: 'vote_average') double voteAverage,
+      @JsonKey(name: 'vote_count') int voteCount});
 }
 
 /// @nodoc
@@ -147,18 +154,18 @@ abstract class _$$_MoviesCopyWith<$Res> implements $MoviesCopyWith<$Res> {
   @override
   $Res call(
       {bool adult,
-      String backdropPath,
-      List<int> genreIds,
+      @JsonKey(name: 'backdrop_path') String backdropPath,
+      @JsonKey(name: 'genre_ids') List<int> genreIds,
       int id,
-      String originalTitle,
+      @JsonKey(name: 'original_title') String originalTitle,
       String overview,
       double popularity,
-      String posterPath,
-      DateTime releaseDate,
+      @JsonKey(name: 'poster_path') String posterPath,
+      @JsonKey(name: 'release_date') DateTime releaseDate,
       String title,
       bool video,
-      double voteAverage,
-      int voteCount});
+      @JsonKey(name: 'vote_average') double voteAverage,
+      @JsonKey(name: 'vote_count') int voteCount});
 }
 
 /// @nodoc
@@ -249,18 +256,18 @@ class __$$_MoviesCopyWithImpl<$Res> extends _$MoviesCopyWithImpl<$Res>
 class _$_Movies implements _Movies {
   const _$_Movies(
       {required this.adult,
-      required this.backdropPath,
-      required final List<int> genreIds,
+      @JsonKey(name: 'backdrop_path') required this.backdropPath,
+      @JsonKey(name: 'genre_ids') required final List<int> genreIds,
       required this.id,
-      required this.originalTitle,
+      @JsonKey(name: 'original_title') required this.originalTitle,
       required this.overview,
       required this.popularity,
-      required this.posterPath,
-      required this.releaseDate,
+      @JsonKey(name: 'poster_path') required this.posterPath,
+      @JsonKey(name: 'release_date') required this.releaseDate,
       required this.title,
       required this.video,
-      required this.voteAverage,
-      required this.voteCount})
+      @JsonKey(name: 'vote_average') required this.voteAverage,
+      @JsonKey(name: 'vote_count') required this.voteCount})
       : _genreIds = genreIds;
 
   factory _$_Movies.fromJson(Map<String, dynamic> json) =>
@@ -269,9 +276,11 @@ class _$_Movies implements _Movies {
   @override
   final bool adult;
   @override
+  @JsonKey(name: 'backdrop_path')
   final String backdropPath;
   final List<int> _genreIds;
   @override
+  @JsonKey(name: 'genre_ids')
   List<int> get genreIds {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_genreIds);
@@ -280,22 +289,27 @@ class _$_Movies implements _Movies {
   @override
   final int id;
   @override
+  @JsonKey(name: 'original_title')
   final String originalTitle;
   @override
   final String overview;
   @override
   final double popularity;
   @override
+  @JsonKey(name: 'poster_path')
   final String posterPath;
   @override
+  @JsonKey(name: 'release_date')
   final DateTime releaseDate;
   @override
   final String title;
   @override
   final bool video;
   @override
+  @JsonKey(name: 'vote_average')
   final double voteAverage;
   @override
+  @JsonKey(name: 'vote_count')
   final int voteCount;
 
   @override
@@ -361,46 +375,53 @@ class _$_Movies implements _Movies {
 abstract class _Movies implements Movies {
   const factory _Movies(
       {required final bool adult,
-      required final String backdropPath,
-      required final List<int> genreIds,
+      @JsonKey(name: 'backdrop_path') required final String backdropPath,
+      @JsonKey(name: 'genre_ids') required final List<int> genreIds,
       required final int id,
-      required final String originalTitle,
+      @JsonKey(name: 'original_title') required final String originalTitle,
       required final String overview,
       required final double popularity,
-      required final String posterPath,
-      required final DateTime releaseDate,
+      @JsonKey(name: 'poster_path') required final String posterPath,
+      @JsonKey(name: 'release_date') required final DateTime releaseDate,
       required final String title,
       required final bool video,
-      required final double voteAverage,
-      required final int voteCount}) = _$_Movies;
+      @JsonKey(name: 'vote_average') required final double voteAverage,
+      @JsonKey(name: 'vote_count') required final int voteCount}) = _$_Movies;
 
   factory _Movies.fromJson(Map<String, dynamic> json) = _$_Movies.fromJson;
 
   @override
   bool get adult => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'backdrop_path')
   String get backdropPath => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'genre_ids')
   List<int> get genreIds => throw _privateConstructorUsedError;
   @override
   int get id => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'original_title')
   String get originalTitle => throw _privateConstructorUsedError;
   @override
   String get overview => throw _privateConstructorUsedError;
   @override
   double get popularity => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'poster_path')
   String get posterPath => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'release_date')
   DateTime get releaseDate => throw _privateConstructorUsedError;
   @override
   String get title => throw _privateConstructorUsedError;
   @override
   bool get video => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'vote_average')
   double get voteAverage => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'vote_count')
   int get voteCount => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

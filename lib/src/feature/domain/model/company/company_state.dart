@@ -14,8 +14,10 @@ class ProductionCompany {
   });
 
   final int id;
+  @JsonKey(name: 'logo_path')
   final String? logoPath;
   final String name;
+  @JsonKey(name: 'origin_country')
   final String originCountry;
   factory ProductionCompany.fromJson(Map<String, dynamic> json) =>
       _$ProductionCompanyFromJson(json);

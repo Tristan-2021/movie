@@ -10,14 +10,19 @@ class CubitccastCubit extends Cubit<CubitccastState> {
 
   CubitccastCubit(this.serviceMovi) : super(const CubitccastState());
 
-  Future<void> getActors(String idMovi) async {
+  Future<void> getActors(int idMovi) async {
     emit(state.copyWith(
       statusmovie: MovieCastStatus.loading,
     ));
     try {
-      var cast = await serviceMovi.getActor(idMovi);
-
-      emit(state.copyWith(statusmovie: MovieCastStatus.castdet, cast: cast));
+      var cast = await serviceMovi.getActor(idMovi.toString());
+      if (cast.isNotEmpty) {
+        emit(state.copyWith(
+            statusmovie: MovieCastStatus.castdet, cast: cast.sublist(0, 4)));
+      } else {
+        emit(state.copyWith(
+            statusmovie: MovieCastStatus.error, error: 'No tenemos actores'));
+      }
     } catch (e) {
       emit(state.copyWith(
           statusmovie: MovieCastStatus.error, error: e.toString()));

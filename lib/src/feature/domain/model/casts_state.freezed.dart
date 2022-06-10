@@ -23,13 +23,18 @@ mixin _$Cast {
   bool get adult => throw _privateConstructorUsedError;
   int get gender => throw _privateConstructorUsedError;
   int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'known_for_department')
   String get knownForDepartment => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'original_name')
   String get originalName => throw _privateConstructorUsedError;
   double get popularity => throw _privateConstructorUsedError;
+  @JsonKey(name: 'profile_path')
   String? get profilePath => throw _privateConstructorUsedError;
+  @JsonKey(name: 'cast_id')
   int get castId => throw _privateConstructorUsedError;
   String get character => throw _privateConstructorUsedError;
+  @JsonKey(name: 'credit_id')
   String get creditId => throw _privateConstructorUsedError;
   int get order => throw _privateConstructorUsedError;
   String? get department => throw _privateConstructorUsedError;
@@ -48,14 +53,14 @@ abstract class $CastCopyWith<$Res> {
       {bool adult,
       int gender,
       int id,
-      String knownForDepartment,
+      @JsonKey(name: 'known_for_department') String knownForDepartment,
       String name,
-      String originalName,
+      @JsonKey(name: 'original_name') String originalName,
       double popularity,
-      String? profilePath,
-      int castId,
+      @JsonKey(name: 'profile_path') String? profilePath,
+      @JsonKey(name: 'cast_id') int castId,
       String character,
-      String creditId,
+      @JsonKey(name: 'credit_id') String creditId,
       int order,
       String? department,
       String? job});
@@ -156,14 +161,14 @@ abstract class _$$_CastCopyWith<$Res> implements $CastCopyWith<$Res> {
       {bool adult,
       int gender,
       int id,
-      String knownForDepartment,
+      @JsonKey(name: 'known_for_department') String knownForDepartment,
       String name,
-      String originalName,
+      @JsonKey(name: 'original_name') String originalName,
       double popularity,
-      String? profilePath,
-      int castId,
+      @JsonKey(name: 'profile_path') String? profilePath,
+      @JsonKey(name: 'cast_id') int castId,
       String character,
-      String creditId,
+      @JsonKey(name: 'credit_id') String creditId,
       int order,
       String? department,
       String? job});
@@ -263,14 +268,14 @@ class _$_Cast implements _Cast {
       {required this.adult,
       required this.gender,
       required this.id,
-      required this.knownForDepartment,
+      @JsonKey(name: 'known_for_department') required this.knownForDepartment,
       required this.name,
-      required this.originalName,
+      @JsonKey(name: 'original_name') required this.originalName,
       required this.popularity,
-      this.profilePath,
-      required this.castId,
+      @JsonKey(name: 'profile_path') this.profilePath,
+      @JsonKey(name: 'cast_id') required this.castId,
       required this.character,
-      required this.creditId,
+      @JsonKey(name: 'credit_id') required this.creditId,
       required this.order,
       this.department,
       this.job});
@@ -284,20 +289,25 @@ class _$_Cast implements _Cast {
   @override
   final int id;
   @override
+  @JsonKey(name: 'known_for_department')
   final String knownForDepartment;
   @override
   final String name;
   @override
+  @JsonKey(name: 'original_name')
   final String originalName;
   @override
   final double popularity;
   @override
+  @JsonKey(name: 'profile_path')
   final String? profilePath;
   @override
+  @JsonKey(name: 'cast_id')
   final int castId;
   @override
   final String character;
   @override
+  @JsonKey(name: 'credit_id')
   final String creditId;
   @override
   final int order;
@@ -372,14 +382,19 @@ abstract class _Cast implements Cast {
       {required final bool adult,
       required final int gender,
       required final int id,
-      required final String knownForDepartment,
+      @JsonKey(name: 'known_for_department')
+          required final String knownForDepartment,
       required final String name,
-      required final String originalName,
+      @JsonKey(name: 'original_name')
+          required final String originalName,
       required final double popularity,
-      final String? profilePath,
-      required final int castId,
+      @JsonKey(name: 'profile_path')
+          final String? profilePath,
+      @JsonKey(name: 'cast_id')
+          required final int castId,
       required final String character,
-      required final String creditId,
+      @JsonKey(name: 'credit_id')
+          required final String creditId,
       required final int order,
       final String? department,
       final String? job}) = _$_Cast;
@@ -393,20 +408,25 @@ abstract class _Cast implements Cast {
   @override
   int get id => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'known_for_department')
   String get knownForDepartment => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'original_name')
   String get originalName => throw _privateConstructorUsedError;
   @override
   double get popularity => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'profile_path')
   String? get profilePath => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'cast_id')
   int get castId => throw _privateConstructorUsedError;
   @override
   String get character => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'credit_id')
   String get creditId => throw _privateConstructorUsedError;
   @override
   int get order => throw _privateConstructorUsedError;

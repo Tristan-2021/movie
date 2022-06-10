@@ -27,7 +27,7 @@ void main() {
               .thenAnswer((_) async => videodetails);
         },
         act: (cubit) {
-          cubit.getVideoDetails('12353');
+          cubit.getVideoDetails(12353);
         },
         build: () => MovidetailCubit(mockServiceMovi),
         expect: () {
@@ -43,11 +43,11 @@ void main() {
         });
     blocTest<MovidetailCubit, MovidetailState>(' MovieDetailsStatus.error',
         setUp: () {
-          when(() => mockCubimoviedetails.getVideoDetails('12353'))
+          when(() => mockCubimoviedetails.getVideoDetails(12353))
               .thenThrow(const MoviException('error Server'));
         },
         act: (cubit) {
-          cubit.getVideoDetails('12353');
+          cubit.getVideoDetails(12353);
         },
         build: () => MovidetailCubit(mockServiceMovi),
         expect: () {
@@ -64,11 +64,11 @@ void main() {
     blocTest<MovidetailCubit, MovidetailState>(
         'return  MovieStatus.error but Unkown Error',
         setUp: () {
-          when(() => mockCubimoviedetails.getVideoDetails('12353'))
+          when(() => mockCubimoviedetails.getVideoDetails(12353))
               .thenThrow(Exception());
         },
         act: (cubit) {
-          cubit.getVideoDetails('12353');
+          cubit.getVideoDetails(12353);
         },
         build: () => MovidetailCubit(mockServiceMovi),
         expect: () {

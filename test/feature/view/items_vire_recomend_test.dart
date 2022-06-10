@@ -66,7 +66,7 @@ void main() {
       // await tester.pump();
       // expect(find.byType(CircularProgressIndicator), findsOneWidget);
       await tester.pump();
-      expect(find.byType(ItemsMovies), findsOneWidget);
+      expect(find.byType(ItemsMoviesReutilizable), findsOneWidget);
     });
     testWidgets('Emist State  MovieStatus [MovieStatus.error]', (tester) async {
       // when(() => mockCubiMovie.state).thenAnswer((_) => const CubitmovieState(
