@@ -6,7 +6,7 @@ part 'company_state.g.dart';
 
 @JsonSerializable()
 class ProductionCompany {
-  ProductionCompany({
+  const ProductionCompany({
     required this.id,
     this.logoPath,
     required this.name,
@@ -23,3 +23,11 @@ class ProductionCompany {
       _$ProductionCompanyFromJson(json);
   Map<String, dynamic> toJson() => _$ProductionCompanyToJson(this);
 }
+
+const company = [
+  ProductionCompany(
+    id: 1,
+    name: 'unknown',
+    originCountry: 'es',
+  )
+];

@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: non_constant_identifier_names
-
 part of 'movi_details_state.dart';
 
 // **************************************************************************
@@ -25,8 +23,8 @@ _$_VideoDetails _$$_VideoDetailsFromJson(Map<String, dynamic> json) =>
       overview: json['overview'] as String,
       popularity: (json['popularity'] as num).toDouble(),
       posterPath: json['poster_path'] as String,
-      productionCompanies: (json['production_companies'] as List<dynamic>)
-          .map((e) => ProductionCompany.fromJson(e as Map<String, dynamic>))
+      productionCompanies: (json['production_companies'] as List<dynamic>?)
+          ?.map((e) => ProductionCompany.fromJson(e as Map<String, dynamic>))
           .toList(),
       releaseDate: DateTime.parse(json['release_date'] as String),
       revenue: json['revenue'] as int,
@@ -55,7 +53,7 @@ Map<String, dynamic> _$$_VideoDetailsToJson(_$_VideoDetails instance) =>
       'popularity': instance.popularity,
       'poster_path': instance.posterPath,
       'production_companies':
-          instance.productionCompanies.map((e) => e.toJson()).toList(),
+          instance.productionCompanies?.map((e) => e.toJson()).toList(),
       'release_date': instance.releaseDate.toIso8601String(),
       'revenue': instance.revenue,
       'runtime': instance.runtime,

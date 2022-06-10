@@ -17,4 +17,4 @@ class Genre {
   Map<String, dynamic> toJson() => _$GenreToJson(this);
 }
 
-var s = const [Genre(id: 1, name: 'Unknown')];
+const generos = [Genre(id: 1, name: 'Unknown')];

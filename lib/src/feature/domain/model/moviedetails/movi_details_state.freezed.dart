@@ -40,7 +40,7 @@ mixin _$VideoDetails {
   @JsonKey(name: 'poster_path')
   String get posterPath => throw _privateConstructorUsedError;
   @JsonKey(name: 'production_companies')
-  List<ProductionCompany> get productionCompanies =>
+  List<ProductionCompany>? get productionCompanies =>
       throw _privateConstructorUsedError;
   @JsonKey(name: 'release_date')
   DateTime get releaseDate => throw _privateConstructorUsedError;
@@ -87,7 +87,7 @@ abstract class $VideoDetailsCopyWith<$Res> {
       @JsonKey(name: 'poster_path')
           String posterPath,
       @JsonKey(name: 'production_companies')
-          List<ProductionCompany> productionCompanies,
+          List<ProductionCompany>? productionCompanies,
       @JsonKey(name: 'release_date')
           DateTime releaseDate,
       int revenue,
@@ -192,7 +192,7 @@ class _$VideoDetailsCopyWithImpl<$Res> implements $VideoDetailsCopyWith<$Res> {
       productionCompanies: productionCompanies == freezed
           ? _value.productionCompanies
           : productionCompanies // ignore: cast_nullable_to_non_nullable
-              as List<ProductionCompany>,
+              as List<ProductionCompany>?,
       releaseDate: releaseDate == freezed
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
@@ -261,7 +261,7 @@ abstract class _$$_VideoDetailsCopyWith<$Res>
       @JsonKey(name: 'poster_path')
           String posterPath,
       @JsonKey(name: 'production_companies')
-          List<ProductionCompany> productionCompanies,
+          List<ProductionCompany>? productionCompanies,
       @JsonKey(name: 'release_date')
           DateTime releaseDate,
       int revenue,
@@ -369,7 +369,7 @@ class __$$_VideoDetailsCopyWithImpl<$Res>
       productionCompanies: productionCompanies == freezed
           ? _value._productionCompanies
           : productionCompanies // ignore: cast_nullable_to_non_nullable
-              as List<ProductionCompany>,
+              as List<ProductionCompany>?,
       releaseDate: releaseDate == freezed
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
@@ -435,7 +435,7 @@ class _$_VideoDetails implements _VideoDetails {
       @JsonKey(name: 'poster_path')
           required this.posterPath,
       @JsonKey(name: 'production_companies')
-          required final List<ProductionCompany> productionCompanies,
+          final List<ProductionCompany>? productionCompanies,
       @JsonKey(name: 'release_date')
           required this.releaseDate,
       required this.revenue,
@@ -491,12 +491,14 @@ class _$_VideoDetails implements _VideoDetails {
   @override
   @JsonKey(name: 'poster_path')
   final String posterPath;
-  final List<ProductionCompany> _productionCompanies;
+  final List<ProductionCompany>? _productionCompanies;
   @override
   @JsonKey(name: 'production_companies')
-  List<ProductionCompany> get productionCompanies {
+  List<ProductionCompany>? get productionCompanies {
+    final value = _productionCompanies;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_productionCompanies);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -627,7 +629,7 @@ abstract class _VideoDetails implements VideoDetails {
       @JsonKey(name: 'poster_path')
           required final String posterPath,
       @JsonKey(name: 'production_companies')
-          required final List<ProductionCompany> productionCompanies,
+          final List<ProductionCompany>? productionCompanies,
       @JsonKey(name: 'release_date')
           required final DateTime releaseDate,
       required final int revenue,
@@ -678,7 +680,7 @@ abstract class _VideoDetails implements VideoDetails {
   String get posterPath => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'production_companies')
-  List<ProductionCompany> get productionCompanies =>
+  List<ProductionCompany>? get productionCompanies =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'release_date')

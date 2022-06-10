@@ -27,7 +27,7 @@ class VideoDetails with _$VideoDetails {
     required double popularity,
     @JsonKey(name: 'poster_path') required String posterPath,
     @JsonKey(name: 'production_companies')
-        required List<ProductionCompany> productionCompanies,
+        List<ProductionCompany>? productionCompanies,
     @JsonKey(name: 'release_date') required DateTime releaseDate,
     required int revenue,
     required int runtime,
