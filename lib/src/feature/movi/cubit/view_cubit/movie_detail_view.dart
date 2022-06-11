@@ -33,7 +33,7 @@ class MoviDetails extends StatelessWidget {
                   );
                 case MovieDetailStatus.loading:
                   return Center(
-                    child: Text(state.error),
+                    child: CircularProgressIndicator(),
                   );
                 case MovieDetailStatus.movidetail:
                   return CustomScrollView(slivers: [
