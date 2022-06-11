@@ -7,7 +7,6 @@ import 'package:movi/src/core/utls/assets.dart';
 import 'package:movi/src/core/utls/get_iamge.dart';
 import 'package:movi/src/feature/domain/model/moviedetails/movi_details_state.dart';
 
-import 'package:movi/src/feature/domain/model/movies_state.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_state.dart';
 

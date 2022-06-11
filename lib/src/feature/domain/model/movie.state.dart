@@ -1,4 +1,4 @@
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: depend_on_referenced_packages, invalid_annotation_target
 
 import 'package:json_annotation/json_annotation.dart';
 import 'package:movi/src/feature/domain/model/moviedetails/movi_details_state.dart';

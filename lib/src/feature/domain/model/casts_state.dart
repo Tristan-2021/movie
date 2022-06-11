@@ -1,5 +1,4 @@
-// ignore: depend_on_referenced_packages
-// ignore_for_file: invalid_annotation_target
+// ignore_for_file: invalid_annotation_target, depend_on_referenced_packages
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
