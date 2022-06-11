@@ -18,8 +18,6 @@ final router = GoRouter(debugLogDiagnostics: true, routes: [
       pageBuilder: (context, state) {
         final param = state.params["find"]!;
 
-        print('imprimir desde la rutas de la casa $param ');
-
         context.read<CubitccastCubit>().getActors(int.parse(param));
 
         context.read<MovidetailCubit>().getVideoDetails(int.parse(param));
