@@ -3,11 +3,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movi/src/core/utls/assets.dart';
 import 'package:movi/src/core/utls/get_iamge.dart';
 import 'package:movi/src/feature/domain/model/moviedetails/movi_details_state.dart';
 
-import 'package:movi/src/feature/domain/model/movies_state.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_state.dart';
 
@@ -15,80 +15,68 @@ import 'package:movi/src/feature/movi/cubit/view_cubit/cast.dart';
 import 'package:movi/src/feature/movi/widget_custon/padding_text.dart';
 
 class MoviDetails extends StatelessWidget {
-  final String moviepath;
-
-  const MoviDetails({Key? key, required this.moviepath}) : super(key: key);
+  const MoviDetails({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Theme.of(context).cardColor,
         body: SafeArea(
-          child: CustomScrollView(slivers: [
-            SliverAppBar(
-              leading: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(Icons.arrow_back_ios_new_outlined)),
-              elevation: 2.0,
-              backgroundColor: Theme.of(context).cardColor,
-              expandedHeight: 420.0,
-              floating: false,
-              pinned: false,
-              flexibleSpace: ClipRRect(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                ),
-                child: CachedNetworkImage(
-                  fit: BoxFit.cover,
-                  imageUrl: getPosterImg(moviepath),
-                  placeholder: (context, url) => Image.asset(
-                    assetsimage,
-                    fit: BoxFit.cover,
-                  ),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
-                ),
-              ),
-            ),
-            BlocBuilder<MovidetailCubit, MovidetailState>(
-              builder: (context, state) {
-                switch (state.statusmovie) {
-                  case MovieDetailStatus.initial:
-                    return SliverList(
-                      delegate: SliverChildListDelegate([
-                        Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      ]),
-                    );
-                  case MovieDetailStatus.loading:
-                    return SliverList(
-                      delegate: SliverChildListDelegate([
-                        Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      ]),
-                    );
-
-                  case MovieDetailStatus.movidetail:
-                    return VideDetailsBody(
+          child: BlocBuilder<MovidetailCubit, MovidetailState>(
+            builder: (context, state) {
+              switch (state.statusmovie) {
+                case MovieDetailStatus.initial:
+                  return Center(
+                    child: Text(state.error),
+                  );
+                case MovieDetailStatus.loading:
+                  return Center(
+                    child: Text(state.error),
+                  );
+                case MovieDetailStatus.movidetail:
+                  return CustomScrollView(slivers: [
+                    SliverAppBar(
+                      leading: IconButton(
+                          onPressed: () {
+                            context.go('/');
+                          },
+                          icon: Icon(Icons.arrow_back_ios_new_outlined)),
+                      elevation: 2.0,
+                      backgroundColor: Theme.of(context).cardColor,
+                      expandedHeight: 400.0,
+                      floating: false,
+                      pinned: false,
+                      flexibleSpace: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(20),
+                          bottomRight: Radius.circular(20),
+                        ),
+                        child: CachedNetworkImage(
+                          height: 400,
+                          fit: BoxFit.cover,
+                          imageUrl: getPosterImg(state.videodetail?.posterPath),
+                          placeholder: (context, url) => Image.asset(
+                            assetsimage,
+                            fit: BoxFit.cover,
+                          ),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
+                        ),
+                      ),
+                    ),
+                    VideDetailsBody(
                       moviedetails: state.videodetail!,
-                    );
-
-                  case MovieDetailStatus.error:
-                    return SliverList(
-                      delegate: SliverChildListDelegate([
-                        Center(
-                          child: Text(state.error),
-                        )
-                      ]),
-                    );
-                }
-              },
-            ),
-          ]),
+                    ),
+                  ]);
+                case MovieDetailStatus.error:
+                  return Center(
+                    child: Text(state.error),
+                  );
+              }
+            },
+          ),
         ));
   }
 }

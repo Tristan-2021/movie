@@ -1,15 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movi/src/core/utls/assets.dart';
 import 'package:movi/src/core/utls/get_iamge.dart';
 import 'package:movi/src/feature/domain/model/moviedetails/movi_details_state.dart';
 import 'package:movi/src/feature/domain/model/movies_state.dart';
-import 'package:movi/src/feature/movi/cubit/cubit_cast/cubit/cubitccast_cubit.dart';
-import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_top_rare/cubit/cubittoprare_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
-import 'package:movi/src/feature/movi/cubit/view_cubit/movie_detail_view.dart';
 
 class ItemsMoviesReutilizable<T> extends StatefulWidget {
   final List<T> movies;
@@ -67,27 +65,29 @@ class _ItemsMoviesReutilizableState<T>
                     child: GestureDetector(
                         key: Key('View_movi_$index'),
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => MoviDetails(
-                                        moviepath:
-                                            imagemovi?[index].posterPath ??
-                                                searchmovi![index].posterPath!,
-                                      )));
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (_) => MoviDetails(
+                          //               moviepath:
+                          //                   imagemovi?[index].posterPath ??
+                          //                       searchmovi![index].posterPath!,
+                          //             )));
 
-                          context.read<CubitccastCubit>().getActors(
-                              imagemovi?[index].id ?? searchmovi![index].id);
+                          // context.read<CubitccastCubit>().getActors(
+                          //     imagemovi?[index].id ?? searchmovi![index].id);
 
-                          context.read<MovidetailCubit>().getVideoDetails(
-                              imagemovi?[index].id ?? searchmovi![index].id);
+                          // context.read<MovidetailCubit>().getVideoDetails(
+                          //     imagemovi?[index].id ?? searchmovi![index].id);
 
                           // String brakoc =
                           //     '${widget.movies[index].backdropPath!}/';
                           // String brakociD = '${widget.movies[index].id}';
 
-                          //context.go('/movie/brakoc');
-                          //context.goNamed('movie', params: {'find': brakociD});
+                          context.goNamed('movie', params: {
+                            'find':
+                                '${imagemovi?[index].id ?? searchmovi![index].id}'
+                          });
                         },
                         child: CachedNetworkImage(
                           fit: BoxFit.cover,
