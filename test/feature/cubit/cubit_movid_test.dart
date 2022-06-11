@@ -10,11 +10,11 @@ import '../fake/fake_movie.dart';
 import '../fake/mocks.dart';
 
 void main() {
-  late final CubitmovieCubit mockCubimovie;
+  late CubitmovieCubit mockCubimovie;
 
-  late final ServiceMovi mockServiceMovi;
+  late ServiceMovi mockServiceMovi;
 
-  setUpAll(() {
+  setUp(() {
     mockServiceMovi = MockServiceMovi();
 
     mockCubimovie = CubitmovieCubit(serviceMovi: mockServiceMovi);
