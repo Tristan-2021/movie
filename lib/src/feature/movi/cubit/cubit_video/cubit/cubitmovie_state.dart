@@ -10,7 +10,8 @@ part 'cubitmovie_state.freezed.dart';
 enum MovieStatus {
   loading,
   movies,
-  error;
+  error,
+  searchmovie;
 }
 
 @freezed
@@ -18,7 +19,7 @@ class CubitmovieState with _$CubitmovieState {
   const factory CubitmovieState({
     final List<Movies>? movies,
     final List<Cast>? cast,
-    final VideoDetails? videodetail,
+    final List<SearchVideoDetails>? videodetail,
     @Default(MovieStatus.loading) MovieStatus statusmovie,
     @Default('') error,
   }) = _CubitmovieState;

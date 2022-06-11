@@ -5,7 +5,7 @@ part 'gnro_state.g.dart';
 
 @JsonSerializable()
 class Genre {
-  Genre({
+  const Genre({
     required this.id,
     required this.name,
   });
@@ -16,3 +16,5 @@ class Genre {
   factory Genre.fromJson(Map<String, dynamic> json) => _$GenreFromJson(json);
   Map<String, dynamic> toJson() => _$GenreToJson(this);
 }
+
+const generos = [Genre(id: 1, name: 'Unknown')];

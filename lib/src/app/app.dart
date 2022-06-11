@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movi/src/app/welcome.dart';
 import 'package:movi/src/core/router/routes.dart';
 import 'package:movi/src/core/styles/colors.dart';
 import 'package:http/http.dart' as http;

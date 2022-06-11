@@ -100,16 +100,16 @@ class ServiceMovi {
     }
   }
 
-  Future<List<Movies>> getSearch(String search) async {
-    final url = Uri.https(ENV.url, '3/$search/movie/',
-        {'api_key': ENV.token, 'language': ENV.idioma});
+  Future<List<SearchVideoDetails>> getSearch(String search) async {
+    final url = Uri.https(ENV.url, '3/search/movie/',
+        {'api_key': ENV.token, 'language': ENV.idioma, 'query': search});
 
     var data = await httpClient.get(url).catchError((e) {
       return null;
     });
-    print(data.body);
     if (data.statusCode == 200) {
-      var movi = Movi.fromJson(json.decode(data.body));
+      var movi = MoviSearch.fromJson(json.decode(data.body));
+      print(movi.results);
       return movi.results;
     } else {
       throw const MoviException('Sorry..! we can t find your movie');

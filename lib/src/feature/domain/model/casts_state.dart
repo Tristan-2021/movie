@@ -1,4 +1,5 @@
-// ignore: depend_on_referenced_packages
+// ignore_for_file: invalid_annotation_target, depend_on_referenced_packages
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'casts_state.g.dart';
@@ -10,14 +11,14 @@ class Cast with _$Cast {
     required bool adult,
     required int gender,
     required int id,
-    required String knownForDepartment,
+    @JsonKey(name: 'known_for_department') required String knownForDepartment,
     required String name,
-    required String originalName,
+    @JsonKey(name: 'original_name') required String originalName,
     required double popularity,
-    String? profilePath,
-    required int castId,
+    @JsonKey(name: 'profile_path') String? profilePath,
+    @JsonKey(name: 'cast_id') required int castId,
     required String character,
-    required String creditId,
+    @JsonKey(name: 'credit_id') required String creditId,
     required int order,
     String? department,
     String? job,

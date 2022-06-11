@@ -1,13 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: non_constant_identifier_names
-
 part of 'casts_state.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
+// ignore: non_constant_identifier_names
 _$_Cast _$$_CastFromJson(Map<String, dynamic> json) => _$_Cast(
       adult: json['adult'] as bool,
       gender: json['gender'] as int,
@@ -25,6 +24,7 @@ _$_Cast _$$_CastFromJson(Map<String, dynamic> json) => _$_Cast(
       job: json['job'] as String?,
     );
 
+// ignore: non_constant_identifier_names
 Map<String, dynamic> _$$_CastToJson(_$_Cast instance) => <String, dynamic>{
       'adult': instance.adult,
       'gender': instance.gender,

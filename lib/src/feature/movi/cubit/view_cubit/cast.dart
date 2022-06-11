@@ -4,7 +4,6 @@ import 'package:movi/src/core/utls/date.dart';
 import 'package:movi/src/core/utls/get_iamge.dart';
 import 'package:movi/src/feature/domain/model/casts_state.dart';
 import 'package:movi/src/feature/domain/model/moviedetails/movi_details_state.dart';
-import 'package:movi/src/feature/domain/model/movies_state.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_cast/cubit/cubitccast_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_cast/cubit/cubitccast_state.dart';
 
@@ -12,10 +11,8 @@ import 'package:movi/src/feature/movi/widget_custon/padding_text.dart';
 import 'package:movi/src/feature/movi/widget_custon/row_paddind.dart';
 
 class CastWidget extends StatelessWidget {
-  final Movies movil;
   final VideoDetails movidetails;
-  const CastWidget({Key? key, required this.movil, required this.movidetails})
-      : super(key: key);
+  const CastWidget({Key? key, required this.movidetails}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +55,6 @@ class CastView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //print(movidetails.genres);
-
     return Column(
       textDirection: TextDirection.ltr,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -67,7 +62,7 @@ class CastView extends StatelessWidget {
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            for (var i = 0; i < 4; i++)
+            for (var i = 0; i < cast.length; i++)
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -98,7 +93,7 @@ class CastView extends StatelessWidget {
         ),
         RowColum(
           label: 'Studio',
-          label1: movidetails.productionCompanies[0].name,
+          label1: getcompany(movidetails.productionCompanies!),
         ),
         RowColum(
           label: 'Gnero',

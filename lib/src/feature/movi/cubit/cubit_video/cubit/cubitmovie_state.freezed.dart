@@ -18,7 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CubitmovieState {
   List<Movies>? get movies => throw _privateConstructorUsedError;
   List<Cast>? get cast => throw _privateConstructorUsedError;
-  VideoDetails? get videodetail => throw _privateConstructorUsedError;
+  List<SearchVideoDetails>? get videodetail =>
+      throw _privateConstructorUsedError;
   MovieStatus get statusmovie => throw _privateConstructorUsedError;
   dynamic get error => throw _privateConstructorUsedError;
 
@@ -35,11 +36,9 @@ abstract class $CubitmovieStateCopyWith<$Res> {
   $Res call(
       {List<Movies>? movies,
       List<Cast>? cast,
-      VideoDetails? videodetail,
+      List<SearchVideoDetails>? videodetail,
       MovieStatus statusmovie,
       dynamic error});
-
-  $VideoDetailsCopyWith<$Res>? get videodetail;
 }
 
 /// @nodoc
@@ -71,7 +70,7 @@ class _$CubitmovieStateCopyWithImpl<$Res>
       videodetail: videodetail == freezed
           ? _value.videodetail
           : videodetail // ignore: cast_nullable_to_non_nullable
-              as VideoDetails?,
+              as List<SearchVideoDetails>?,
       statusmovie: statusmovie == freezed
           ? _value.statusmovie
           : statusmovie // ignore: cast_nullable_to_non_nullable
@@ -81,17 +80,6 @@ class _$CubitmovieStateCopyWithImpl<$Res>
           : error // ignore: cast_nullable_to_non_nullable
               as dynamic,
     ));
-  }
-
-  @override
-  $VideoDetailsCopyWith<$Res>? get videodetail {
-    if (_value.videodetail == null) {
-      return null;
-    }
-
-    return $VideoDetailsCopyWith<$Res>(_value.videodetail!, (value) {
-      return _then(_value.copyWith(videodetail: value));
-    });
   }
 }
 
@@ -105,12 +93,9 @@ abstract class _$$_CubitmovieStateCopyWith<$Res>
   $Res call(
       {List<Movies>? movies,
       List<Cast>? cast,
-      VideoDetails? videodetail,
+      List<SearchVideoDetails>? videodetail,
       MovieStatus statusmovie,
       dynamic error});
-
-  @override
-  $VideoDetailsCopyWith<$Res>? get videodetail;
 }
 
 /// @nodoc
@@ -142,9 +127,9 @@ class __$$_CubitmovieStateCopyWithImpl<$Res>
           : cast // ignore: cast_nullable_to_non_nullable
               as List<Cast>?,
       videodetail: videodetail == freezed
-          ? _value.videodetail
+          ? _value._videodetail
           : videodetail // ignore: cast_nullable_to_non_nullable
-              as VideoDetails?,
+              as List<SearchVideoDetails>?,
       statusmovie: statusmovie == freezed
           ? _value.statusmovie
           : statusmovie // ignore: cast_nullable_to_non_nullable
@@ -160,11 +145,12 @@ class _$_CubitmovieState implements _CubitmovieState {
   const _$_CubitmovieState(
       {final List<Movies>? movies,
       final List<Cast>? cast,
-      this.videodetail,
+      final List<SearchVideoDetails>? videodetail,
       this.statusmovie = MovieStatus.loading,
       this.error = ''})
       : _movies = movies,
-        _cast = cast;
+        _cast = cast,
+        _videodetail = videodetail;
 
   final List<Movies>? _movies;
   @override
@@ -184,8 +170,15 @@ class _$_CubitmovieState implements _CubitmovieState {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<SearchVideoDetails>? _videodetail;
   @override
-  final VideoDetails? videodetail;
+  List<SearchVideoDetails>? get videodetail {
+    final value = _videodetail;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey()
   final MovieStatus statusmovie;
@@ -206,7 +199,7 @@ class _$_CubitmovieState implements _CubitmovieState {
             const DeepCollectionEquality().equals(other._movies, _movies) &&
             const DeepCollectionEquality().equals(other._cast, _cast) &&
             const DeepCollectionEquality()
-                .equals(other.videodetail, videodetail) &&
+                .equals(other._videodetail, _videodetail) &&
             const DeepCollectionEquality()
                 .equals(other.statusmovie, statusmovie) &&
             const DeepCollectionEquality().equals(other.error, error));
@@ -217,7 +210,7 @@ class _$_CubitmovieState implements _CubitmovieState {
       runtimeType,
       const DeepCollectionEquality().hash(_movies),
       const DeepCollectionEquality().hash(_cast),
-      const DeepCollectionEquality().hash(videodetail),
+      const DeepCollectionEquality().hash(_videodetail),
       const DeepCollectionEquality().hash(statusmovie),
       const DeepCollectionEquality().hash(error));
 
@@ -231,7 +224,7 @@ abstract class _CubitmovieState implements CubitmovieState {
   const factory _CubitmovieState(
       {final List<Movies>? movies,
       final List<Cast>? cast,
-      final VideoDetails? videodetail,
+      final List<SearchVideoDetails>? videodetail,
       final MovieStatus statusmovie,
       final dynamic error}) = _$_CubitmovieState;
 
@@ -240,7 +233,8 @@ abstract class _CubitmovieState implements CubitmovieState {
   @override
   List<Cast>? get cast => throw _privateConstructorUsedError;
   @override
-  VideoDetails? get videodetail => throw _privateConstructorUsedError;
+  List<SearchVideoDetails>? get videodetail =>
+      throw _privateConstructorUsedError;
   @override
   MovieStatus get statusmovie => throw _privateConstructorUsedError;
   @override
