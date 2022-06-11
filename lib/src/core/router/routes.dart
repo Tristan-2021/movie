@@ -1,9 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 //import 'package:go_router/go_router.dart';
-import 'package:movi/src/app/example_argument.dart';
-import 'package:movi/src/app/welcome.dart';
-import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
+//import 'package:go_router/go_router.dart';
 
 // final router = GoRouter(debugLogDiagnostics: true, routes: [
 //   GoRoute(
