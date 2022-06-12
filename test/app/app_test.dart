@@ -4,7 +4,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:movi/src/app/app.dart';
 import 'package:movi/src/app/welcome.dart';
-import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_top_rare/cubit/cubittoprare_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_top_rare/cubit/cubittoprare_state.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
@@ -60,10 +59,6 @@ void main() {
                   ..getMovies()),
             BlocProvider(
               create: (context) =>
-                  MovidetailCubit(context.read<MockServiceMovi>()),
-            ),
-            BlocProvider(
-              create: (context) =>
                   CubittoprareCubit(context.read<MockServiceMovi>())
                     ..getMoviesToprare(),
             ),
@@ -92,10 +87,6 @@ void main() {
                   ..getMovies()),
             BlocProvider(
               create: (context) =>
-                  MovidetailCubit(context.read<MockServiceMovi>()),
-            ),
-            BlocProvider(
-              create: (context) =>
                   CubittoprareCubit(context.read<MockServiceMovi>())
                     ..getMoviesToprare(),
             ),
@@ -122,10 +113,7 @@ void main() {
                 create: (context) => CubitmovieCubit(
                     serviceMovi: context.read<MockServiceMovi>())
                   ..getMovies()),
-            BlocProvider(
-              create: (context) =>
-                  MovidetailCubit(context.read<MockServiceMovi>()),
-            ),
+
             // BlocProvider(
             //   create: (context) =>
             //       CubitccastCubit(context.read<MockServiceMovi>()),

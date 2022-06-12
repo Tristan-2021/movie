@@ -15,32 +15,31 @@ class CubitgeneralCubit extends Cubit<CubitgeneralState> {
   List<Movies> movies = [];
   List<Movies> moviesrare = [];
 
-  Future<void> getVideos() async {
-    emit(state.copyWith(
-      generlstatus: CubitGeneralSatus.loading,
-    ));
-
+  Future<void> getVideos(int entero) async {
     try {
-      if (movies.length >= 3) {
-        emit(state.copyWith(
-            generlstatus: CubitGeneralSatus.video, video: movies));
+      if (movies.length >= 60) {
+        callgetvideo();
       } else {
-        var date = await serviceMovi.getMovie();
-
-        movies.addAll([...date]);
-        emit(
-            state.copyWith(generlstatus: CubitGeneralSatus.video, video: date));
-      }
-
-      if (movies.isNotEmpty) {
-        emit(state.copyWith(
-            generlstatus: CubitGeneralSatus.video, video: movies));
-      } else {
-        var date = await serviceMovi.getMovie();
-        movies.addAll(date);
-
-        emit(
-            state.copyWith(generlstatus: CubitGeneralSatus.video, video: date));
+        if (entero >= 19) {
+          emit(state.copyWith(
+            generlstatus: CubitGeneralSatus.loading,
+          ));
+          var date = await serviceMovi.getMovie();
+          movies.addAll(date);
+          emit(state.copyWith(
+              generlstatus: CubitGeneralSatus.video, video: date));
+        } else {
+          if (movies.isEmpty) {
+            emit(state.copyWith(
+              generlstatus: CubitGeneralSatus.loading,
+            ));
+            var date = await serviceMovi.getMovie();
+            movies.addAll(date);
+            callgetvideo();
+          } else {
+            callgetvideo();
+          }
+        }
       }
     } on MoviException catch (e) {
       emit(state.copyWith(
@@ -51,31 +50,29 @@ class CubitgeneralCubit extends Cubit<CubitgeneralState> {
     }
   }
 
-  //Todo:TopRare
-  Future<void> getMoviesToprare() async {
-    emit(state.copyWith(
-      generlstatus: CubitGeneralSatus.loading,
-    ));
-
-    try {
-      if (moviesrare.length >= 60) {
-        emit(state.copyWith(
-            generlstatus: CubitGeneralSatus.videotoprare, video: movies));
-      } else {
-        var date = await serviceMovi.getToprate();
-        moviesrare.addAll([...date]);
-
-        emit(state.copyWith(
-            generlstatus: CubitGeneralSatus.videotoprare, video: date));
-      }
-    } on MoviException catch (e) {
-      emit(state.copyWith(
-          generlstatus: CubitGeneralSatus.error, error: e.errors));
-    } catch (e) {
-      emit(state.copyWith(
-          generlstatus: CubitGeneralSatus.error, error: e.toString()));
-    }
+  callgetvideo() {
+    emit(state.copyWith(generlstatus: CubitGeneralSatus.video, video: movies));
   }
+  // //Todo:TopRare
+  // Future<void> getMoviesToprare(int idMovi) async {
+  //   emit(state.copyWith(
+  //     generlstatus: CubitGeneralSatus.loading,
+  //   ));
+  //   try {
+  //     var cast = await serviceMovi.getActor(idMovi.toString());
+  //     if (cast.isNotEmpty) {
+  //       emit(state.copyWith(
+  //           generlstatus: CubitGeneralSatus.cast, cast: cast.sublist(0, 4)));
+  //     } else {
+  //       emit(state.copyWith(
+  //           generlstatus: CubitGeneralSatus.error,
+  //           error: 'No tenemos actores'));
+  //     }
+  //   } catch (e) {
+  //     emit(state.copyWith(
+  //         generlstatus: CubitGeneralSatus.error, error: e.toString()));
+  //   }
+  // }
 
   //Todo: VideoDetail
   Future<void> getVideoDetails(int idMovi) async {
@@ -111,6 +108,27 @@ class CubitgeneralCubit extends Cubit<CubitgeneralState> {
     } on MoviException catch (e) {
       emit(state.copyWith(
           generlstatus: CubitGeneralSatus.error, error: e.errors));
+    } catch (e) {
+      emit(state.copyWith(
+          generlstatus: CubitGeneralSatus.error, error: e.toString()));
+    }
+  }
+
+  //todo: ACtos
+  Future<void> getActors(int idMovi) async {
+    emit(state.copyWith(
+      generlstatus: CubitGeneralSatus.loading,
+    ));
+    try {
+      var cast = await serviceMovi.getActor(idMovi.toString());
+      if (cast.isNotEmpty) {
+        emit(state.copyWith(
+            generlstatus: CubitGeneralSatus.cast, cast: cast.sublist(0, 4)));
+      } else {
+        emit(state.copyWith(
+            generlstatus: CubitGeneralSatus.error,
+            error: 'No tenemos actores'));
+      }
     } catch (e) {
       emit(state.copyWith(
           generlstatus: CubitGeneralSatus.error, error: e.toString()));
