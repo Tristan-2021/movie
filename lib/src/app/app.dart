@@ -5,14 +5,13 @@ import 'package:movi/src/core/styles/colors.dart';
 import 'package:http/http.dart' as http;
 import 'package:movi/src/feature/domain/repo_sources/data_sources.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_cast/cubit/cubitccast_cubit.dart';
-import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
+import 'package:movi/src/feature/movi/cubit/cubit_general/cubit/cubitgeneral_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_top_rare/cubit/cubittoprare_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider(
@@ -25,14 +24,15 @@ class MyApp extends StatelessWidget {
             )..getMovies(),
           ),
           BlocProvider(
-            create: (context) => MovidetailCubit(context.read<ServiceMovi>()),
+            create: (context) => CubitgeneralCubit(
+              serviceMovi: context.read<ServiceMovi>(),
+            )..getVideos(1),
           ),
           BlocProvider(
             create: (context) => CubitccastCubit(context.read<ServiceMovi>()),
           ),
           BlocProvider(
-            create: (context) => CubittoprareCubit(context.read<ServiceMovi>())
-              ..getMoviesToprare(),
+            create: (context) => CubittoprareCubit(context.read<ServiceMovi>()),
           ),
         ],
         child: MaterialApp(

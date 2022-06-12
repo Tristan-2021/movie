@@ -6,9 +6,8 @@ import 'package:movi/src/core/utls/get_iamge.dart';
 import 'package:movi/src/feature/domain/model/moviedetails/movi_details_state.dart';
 import 'package:movi/src/feature/domain/model/movies_state.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_cast/cubit/cubitccast_cubit.dart';
-import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
+import 'package:movi/src/feature/movi/cubit/cubit_general/cubit/cubitgeneral_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_top_rare/cubit/cubittoprare_cubit.dart';
-import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/view_cubit/movie_detail_view.dart';
 
 class ItemsMoviesReutilizable<T> extends StatefulWidget {
@@ -44,7 +43,9 @@ class _ItemsMoviesReutilizableState<T>
             if (widget.rareOrRecomen == 'rare') {
               context.read<CubittoprareCubit>().getMoviesToprare();
             } else {
-              context.read<CubitmovieCubit>().getMovies();
+              context
+                  .read<CubitgeneralCubit>()
+                  .getVideos(widget.movies.length - 1);
             }
           }
         },
@@ -79,7 +80,7 @@ class _ItemsMoviesReutilizableState<T>
                           context.read<CubitccastCubit>().getActors(
                               imagemovi?[index].id ?? searchmovi![index].id);
 
-                          context.read<MovidetailCubit>().getVideoDetails(
+                          context.read<CubitgeneralCubit>().getVideoDetails(
                               imagemovi?[index].id ?? searchmovi![index].id);
 
                           // String brakoc =
