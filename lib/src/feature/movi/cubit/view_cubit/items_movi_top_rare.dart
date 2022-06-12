@@ -12,6 +12,7 @@ class ItemsTopRare extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CubittoprareCubit, CubittoprareState>(
+      bloc: BlocProvider.of<CubittoprareCubit>(context)..getMoviesToprare(),
       builder: (context, state) {
         switch (state.statusmovie) {
           case MovieTopRareStatus.loading:

@@ -24,12 +24,12 @@ Map<String, dynamic> _$MoviToJson(Movi instance) => <String, dynamic>{
 
 OriginalLanguage _$OriginalLanguageFromJson(Map<String, dynamic> json) =>
     OriginalLanguage(
-      originalLanguageValues: json['original_language_values'] as String,
+      originalLanguageValues: json['originalLanguageValues'] as String,
     );
 
 Map<String, dynamic> _$OriginalLanguageToJson(OriginalLanguage instance) =>
     <String, dynamic>{
-      'original_language_values': instance.originalLanguageValues,
+      'originalLanguageValues': instance.originalLanguageValues,
     };
 
 MoviSearch _$MoviSearchFromJson(Map<String, dynamic> json) => MoviSearch(
@@ -45,6 +45,6 @@ Map<String, dynamic> _$MoviSearchToJson(MoviSearch instance) =>
     <String, dynamic>{
       'page': instance.page,
       'results': instance.results.map((e) => e.toJson()).toList(),
-      'total_page': instance.totalPages,
-      'total_result': instance.totalResults,
+      'total_pages': instance.totalPages,
+      'total_results': instance.totalResults,
     };
