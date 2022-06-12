@@ -12,7 +12,6 @@ import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.d
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider(
