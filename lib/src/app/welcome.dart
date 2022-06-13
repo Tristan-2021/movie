@@ -52,7 +52,7 @@ class Welcome extends StatelessWidget {
                         ),
                       ),
                       Container(
-                          height: zise / 3.5,
+                          height: zise * 0.3,
                           width: double.infinity,
                           margin: const EdgeInsets.all(5.0),
                           decoration: const BoxDecoration(

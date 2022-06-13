@@ -32,7 +32,8 @@ class MyApp extends StatelessWidget {
             create: (context) => CubitccastCubit(context.read<ServiceMovi>()),
           ),
           BlocProvider(
-            create: (context) => CubittoprareCubit(context.read<ServiceMovi>()),
+            create: (context) => CubittoprareCubit(context.read<ServiceMovi>())
+              ..getMoviesToprare(),
           ),
         ],
         child: MaterialApp(

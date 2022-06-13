@@ -28,13 +28,14 @@ class ItemsMoviesReutilizable<T> extends StatefulWidget {
 class _ItemsMoviesReutilizableState<T>
     extends State<ItemsMoviesReutilizable<T>> {
   PageController controoler =
-      PageController(initialPage: 1, viewportFraction: 0.44);
+      PageController(initialPage: 1, viewportFraction: 0.46);
 
   List<Movies>? imagemovi;
   List<SearchVideoDetails>? searchmovi;
 
   @override
   Widget build(BuildContext context) {
+    double size = MediaQuery.of(context).size.width;
     return PageView.builder(
         controller: controoler,
         itemCount: widget.movies.length,
@@ -64,7 +65,7 @@ class _ItemsMoviesReutilizableState<T>
                   borderRadius: const BorderRadius.all(Radius.circular(40)),
                   child: SizedBox(
                     height: 160,
-                    width: 140,
+                    width: size / 2.4,
                     child: GestureDetector(
                         key: Key('View_movi_$index'),
                         onTap: () {
@@ -112,6 +113,7 @@ class _ItemsMoviesReutilizableState<T>
                       ? imagemovi![index].title
                       : searchmovi![index].title,
                   overflow: TextOverflow.ellipsis,
+                  textScaleFactor: 1.0,
                 ),
               ),
               Padding(

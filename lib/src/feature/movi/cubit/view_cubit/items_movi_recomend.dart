@@ -2,13 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movi/src/feature/domain/model/moviedetails/movi_details_state.dart';
 import 'package:movi/src/feature/domain/model/movies_state.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_general/cubit/cubitgeneral_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_general/cubit/cubitgeneral_state.dart';
 
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
-import 'package:movi/src/feature/movi/cubit/view_cubit/items_reutilizable.dart';
+
+import 'items_reutilizable.dart';
 
 class ItemsMoviRecomend extends StatelessWidget {
   const ItemsMoviRecomend({Key? key}) : super(key: key);
@@ -16,6 +16,13 @@ class ItemsMoviRecomend extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CubitgeneralCubit, CubitgeneralState>(
+      buildWhen: (statepreview, currenSate) {
+        if (statepreview.video == currenSate.video) {
+          return false;
+        } else {
+          return true;
+        }
+      },
       builder: (context, state) {
         switch (state.generlstatus) {
           case CubitGeneralSatus.loading:
@@ -44,11 +51,7 @@ class ItemsMoviRecomend extends StatelessWidget {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          case CubitGeneralSatus.videoSearch:
-            return ItemsMoviesReutilizable<SearchVideoDetails>(
-              movies: state.videoSearchs!,
-              rareOrRecomen: 'reco',
-            );
+
           default:
             return const Center(
               child: CircularProgressIndicator(),
