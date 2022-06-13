@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart' as intl;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movi/src/core/utls/date.dart';
@@ -92,15 +93,15 @@ class CastView extends StatelessWidget {
           ],
         ),
         RowColum(
-          label: 'Studio',
+          label: 'studio_details'.tr(),
           label1: movidetails.productionCompanies[0].name,
         ),
         RowColum(
-          label: 'Gnero',
+          label: 'Gnero_details'.tr(),
           label1: movidetails.genres[0].name,
         ),
         RowColum(
-          label: 'Release',
+          label: 'realse_details'.tr(),
           label1: date(movidetails.releaseDate),
         ),
       ],

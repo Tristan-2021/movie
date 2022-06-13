@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart' as intl;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movi/src/core/utls/assets.dart';
@@ -141,7 +142,7 @@ class VideDetailsBody extends StatelessWidget {
                 child: TextButton(
                     style: Theme.of(context).textButtonTheme.style,
                     onPressed: () {},
-                    child: Text('WATCH NOW',
+                    child: Text('botons_title'.tr(),
                         style: Theme.of(context).textTheme.headline3!)),
               ),
               const Spacer(

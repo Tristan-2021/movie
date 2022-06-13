@@ -1,0 +1,47 @@
+{
+    "title": "Hello, What do you want to Watch?",
+    "search": "Search ",
+    "title_recomend": "RECOMMENDED FOR YOU",
+    "title_sell": "Sell all",
+
+    "msg_named": "{} are written in the {lang} language",
+    "clickMe": "Click me",
+    "profile": {
+        "reset_password": {
+            "label": "Reset Password",
+            "username": "Username",
+            "password": "password"
+        }
+    },
+
+    "botons_title" : "Watch Now",
+    "studio_details": "Studio",
+    "Gnero_details": "Gnro", 
+    "realse_details": "Realese", 
+
+
+    "clicked": {
+        "zero": "You clicked {} times!",
+        "one": "You clicked {} time!",
+        "two": "You clicked {} times!",
+        "few": "You clicked {} times!",
+        "many": "You clicked {} times!",
+        "other": "You clicked {} times!"
+    },
+  
+    "details_peli": [
+      "Studio",
+      "Gnro", 
+      "Realese"
+      
+    ],
+    "gender": {
+        "male": "Hi man ;) ",
+        "female": "Hello girl :)",
+        "with_arg": {
+            "male": "Hi man ;) {}",
+            "female": "Hello girl :) {}"
+        }
+    },
+    "reset_locale": "Reset Language"
+}

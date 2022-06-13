@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_cubit.dart';
@@ -30,9 +31,9 @@ class _SearchMovieState extends State<SearchMovie> {
           Padding(
             padding: const EdgeInsets.only(top: 20.0),
             child: Text(
-              'Hello, What do you\n want to watch?',
+              'title',
               style: Theme.of(context).textTheme.headline5,
-            ),
+            ).tr(),
           ),
           Container(
               padding: const EdgeInsets.all(10.0),
@@ -48,7 +49,7 @@ class _SearchMovieState extends State<SearchMovie> {
                   contentPadding:
                       const EdgeInsets.only(left: 10.0, bottom: 5.0, top: 15.0),
                   border: InputBorder.none,
-                  hintText: 'Search',
+                  hintText: 'search'.tr(),
                   hintStyle: const TextStyle(color: Colors.white),
                   icon: Icon(
                     Icons.search,

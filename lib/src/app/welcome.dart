@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:movi/src/feature/movi/cubit/view_cubit/items_movi_recomend.dart';
 import 'package:movi/src/feature/movi/cubit/view_cubit/items_movi_top_rare.dart';
@@ -39,15 +40,15 @@ class Welcome extends StatelessWidget {
                               child: GestureDetector(
                                 onTap: () {},
                                 child: Text(
-                                  'RECOMMENDED FOR YOU ',
+                                  'title_recomend',
                                   style: Theme.of(context).textTheme.headline2,
-                                ),
+                                ).tr(),
                               ),
                             ),
                             Text(
-                              'Sell all',
+                              'title_sell',
                               style: Theme.of(context).textTheme.headline2,
-                            ),
+                            ).tr(),
                           ],
                         ),
                       ),

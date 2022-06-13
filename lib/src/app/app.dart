@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movi/src/app/welcome.dart';
@@ -36,8 +37,10 @@ class MyApp extends StatelessWidget {
           ),
         ],
         child: MaterialApp(
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
           theme: ThemeData().copyWith(
               backgroundColor: ColorsMovie.colorapbar,
               cardColor: ColorsMovie.colorcontainer,

@@ -1,0 +1,43 @@
+{
+    "title": "Hola, Qué pelicula quieres Ver?",
+    "search": "Buscar ",
+    "title_recomend": "RECOMENDACIONES PARA TI",
+    "title_sell": "Ver Todos",
+
+
+    
+    "msg_named": "{} are written in the {lang} language",
+    "clickMe": "Click me",
+    "profile": {
+        "reset_password": {
+            "label": "Reset Password",
+            "username": "Username",
+            "password": "password"
+        }
+    },
+    "botons_title" : "Ver Ahora",
+    "clicked": {
+        "zero": "You clicked {} times!",
+        "one": "You clicked {} time!",
+        "two": "You clicked {} times!",
+        "few": "You clicked {} times!",
+        "many": "You clicked {} times!",
+        "other": "You clicked {} times!"
+    },
+  
+    "studio_details": "Estudio",
+    "Gnero_details": "Género", 
+    "realse_details": "Estreno", 
+
+
+
+    "gender": {
+        "male": "Hole Hombre ;) ",
+        "female": "Hola Chica :)",
+        "with_arg": {
+            "male": "Hi man ;) {}",
+            "female": "Hello girl :) {}"
+        }
+    },
+    "reset_locale": "Reset Language"
+}
