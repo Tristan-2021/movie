@@ -27,11 +27,7 @@ class ServiceMovi {
 
     print('que valor este numero $indexmovi ');
 
-    var data = await httpClient
-        .get(Uri.parse(ENV.baseUrl + ENV.token))
-        .catchError((e) {
-      return null;
-    });
+    var data = await httpClient.get(Uri.parse(ENV.baseUrl + ENV.token));
 
     if (indexrare == 4) {
       indexrare = 0;
@@ -113,6 +109,34 @@ class ServiceMovi {
       return movi.results;
     } else {
       throw const MoviException('Sorry..! we can t find your movie');
+    }
+  }
+
+  Future<List<Movies>> getMovies1() async {
+    indexmovi++;
+    var url = Uri.https(ENV.url, '3/movie/now_playing/', {
+      'api_key': ENV.token,
+      'language': ENV.idioma,
+      'page': indexmovi.toString()
+    });
+    var data = await httpClient.get(url).timeout(const Duration(seconds: 15));
+    switch (data.statusCode) {
+      case 422:
+        throw const MoviException('Ups..! página no està disponible');
+      case 404:
+        throw const MoviException('Pagina No Encontrada');
+      case 401:
+        throw const MoviException('No Authorizado');
+
+      case 200:
+        var covnerdata = jsonDecode(data.body);
+
+        var date = Movi.fromJson(covnerdata);
+
+        return date.results;
+
+      default:
+        throw const MoviException('Error inesperado');
     }
   }
 }

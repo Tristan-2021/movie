@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -57,6 +58,68 @@ void main() {
       expect(s, throwsA(isA<MoviException>()));
     });
   });
+  //todo:Get Movies!
+  group('GetMovies1 ', () {
+    test('statuscode TimeoutException', () async {
+      //  final response = MockResponse();
+
+      when(() => mockHttp.get(any()).timeout(const Duration(seconds: 10)))
+          .thenThrow(TimeoutException('', const Duration(seconds: 10)));
+
+      //  var parserd = Movi.fromJson(json.decode(response.body));
+      var s = serviceSources.getMovies1();
+
+      expect(s, throwsA(isA<TimeoutException>()));
+    });
+
+    test('statuscode 404 getmovies1', () async {
+      final response = MockResponse();
+
+      when(() => mockHttp.get(any())).thenAnswer((_) async {
+        return response;
+      });
+      when(() => response.statusCode).thenReturn(404);
+
+      //when(() => response.body).thenReturn(fake);
+
+      //  var parserd = Movi.fromJson(json.decode(response.body));
+      var s = serviceSources.getMovies1();
+
+      expect(s, throwsA(isA<MoviException>()));
+    });
+    test('statuscode 401 ', () async {
+      final response = MockResponse();
+
+      when(() => mockHttp.get(any())).thenAnswer((_) async {
+        return response;
+      });
+      when(() => response.statusCode).thenReturn(404);
+
+      when(() => response.body).thenReturn(fake);
+
+      //  var parserd = Movi.fromJson(json.decode(response.body));
+      var s = serviceSources.getMovies1();
+
+      expect(s, throwsA(isA<MoviException>()));
+    });
+
+    test('statuscode 200 getMovies1 ', () async {
+      final response = MockResponse();
+
+      when(() => mockHttp.get(any())).thenAnswer((_) async {
+        return response;
+      });
+      when(() => response.statusCode).thenReturn(200);
+
+      when(() => response.body).thenReturn(fake);
+
+      var parserd = Movi.fromJson(json.decode(response.body));
+      await serviceSources.getMovies1();
+
+      expect(parserd.results, isA<List<Movies>>());
+    });
+  });
+  //todo:GetVideoDetails
 
   group('GetVideoDetails', () {
     test(

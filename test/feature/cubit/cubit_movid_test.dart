@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -109,6 +111,27 @@ void main() {
           mockCubimovie.close();
         });
 
+    blocTest<CubitmovieCubit, CubitmovieState>(
+        'return data and MovieStatus.error is TimeoutException ',
+        setUp: () {
+          when(() => mockServiceMovi.getMovies1()).thenThrow(
+              TimeoutException('mensaje', const Duration(seconds: 10)));
+        },
+        act: (cubit) {
+          cubit.getMovies();
+        },
+        build: () => CubitmovieCubit(serviceMovi: mockServiceMovi),
+        expect: () {
+          return <CubitmovieState>[
+            const CubitmovieState(statusmovie: MovieStatus.loading),
+            const CubitmovieState(
+                statusmovie: MovieStatus.error,
+                error: 'Tiene un internet muy lento..!')
+          ];
+        },
+        tearDown: () {
+          mockCubimovie.close();
+        });
     blocTest<CubitmovieCubit, CubitmovieState>(
         'return data and MovieStatus.error but Unkown Error',
         setUp: () {

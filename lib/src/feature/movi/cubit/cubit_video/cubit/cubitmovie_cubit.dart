@@ -1,5 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages, unrelated_type_equality_checks
 
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:movi/src/core/exceptions/exception.dart';
 import 'package:movi/src/feature/domain/model/movies_state.dart';
@@ -20,7 +22,7 @@ class CubitmovieCubit extends Cubit<CubitmovieState> {
       if (movies.length >= 3) {
         emit(state.copyWith(statusmovie: MovieStatus.movies, movies: movies));
       } else {
-        var date = await serviceMovi.getMovie();
+        var date = await serviceMovi.getMovies1();
 
         movies.addAll([...date]);
         emit(state.copyWith(statusmovie: MovieStatus.movies, movies: date));
@@ -29,15 +31,22 @@ class CubitmovieCubit extends Cubit<CubitmovieState> {
       if (movies.isNotEmpty) {
         emit(state.copyWith(statusmovie: MovieStatus.movies, movies: movies));
       } else {
-        var date = await serviceMovi.getMovie();
+        var date = await serviceMovi.getMovies1();
         movies.addAll(date);
 
         emit(state.copyWith(statusmovie: MovieStatus.movies, movies: date));
       }
     } on MoviException catch (e) {
       emit(state.copyWith(statusmovie: MovieStatus.error, error: e.errors));
-    } catch (e) {
-      emit(state.copyWith(statusmovie: MovieStatus.error, error: e.toString()));
+    } catch (e, t) {
+      if (e is TimeoutException) {
+        emit(state.copyWith(
+            statusmovie: MovieStatus.error,
+            error: 'Tiene un internet muy lento..!'));
+      } else {
+        emit(state.copyWith(
+            statusmovie: MovieStatus.error, error: t.toString()));
+      }
     }
   }
 
