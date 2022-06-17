@@ -4,13 +4,9 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart';
+import 'package:model/model.dart';
 import 'package:movi/src/core/env/en.dart';
 import 'package:movi/src/core/exceptions/exception.dart';
-import 'package:movi/src/feature/domain/model/actors_state.dart';
-import 'package:movi/src/feature/domain/model/casts_state.dart';
-import 'package:movi/src/feature/domain/model/movie.state.dart';
-import 'package:movi/src/feature/domain/model/moviedetails/movi_details_state.dart';
-import 'package:movi/src/feature/domain/model/movies_state.dart';
 
 class ServiceMovi {
   final Client httpClient;

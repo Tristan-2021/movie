@@ -1,13 +1,14 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+
 import 'package:movi/src/core/exceptions/exception.dart';
 import 'package:movi/src/feature/domain/repo_sources/data_sources.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_state.dart';
 
-import '../fake/fakevideo_Details.dart';
 import '../fake/mocks.dart';
+import '../fake/video_details_fake.dart';
 
 void main() {
   late final MovidetailCubit mockCubimoviedetails;

@@ -251,7 +251,6 @@ class __$$_MoviesCopyWithImpl<$Res> extends _$MoviesCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 @JsonSerializable(includeIfNull: true)
 class _$_Movies implements _Movies {
   const _$_Movies(

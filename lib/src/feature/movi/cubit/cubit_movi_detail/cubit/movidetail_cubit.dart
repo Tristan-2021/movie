@@ -2,6 +2,7 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+
 import 'package:movi/src/core/exceptions/exception.dart';
 import 'package:movi/src/feature/domain/repo_sources/data_sources.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_state.dart';

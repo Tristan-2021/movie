@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:model/model.dart';
 import 'package:movi/src/core/utls/assets.dart';
 import 'package:movi/src/core/utls/get_iamge.dart';
-import 'package:movi/src/feature/domain/model/moviedetails/movi_details_state.dart';
-import 'package:movi/src/feature/domain/model/movies_state.dart';
+
 import 'package:movi/src/feature/movi/cubit/cubit_cast/cubit/cubitccast_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_movi_detail/cubit/movidetail_cubit.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_top_rare/cubit/cubittoprare_cubit.dart';

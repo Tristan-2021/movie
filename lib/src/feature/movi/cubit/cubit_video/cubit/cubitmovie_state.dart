@@ -1,9 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 
-import 'package:movi/src/feature/domain/model/casts_state.dart';
-import 'package:movi/src/feature/domain/model/moviedetails/movi_details_state.dart';
-import 'package:movi/src/feature/domain/model/movies_state.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:model/model.dart';
 
 part 'cubitmovie_state.freezed.dart';
 

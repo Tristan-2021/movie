@@ -3,8 +3,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:model/model.dart';
 import 'package:movi/src/core/exceptions/exception.dart';
-import 'package:movi/src/feature/domain/model/movies_state.dart';
 import 'package:movi/src/feature/domain/repo_sources/data_sources.dart';
 import 'package:movi/src/feature/movi/cubit/cubit_video/cubit/cubitmovie_state.dart';
 

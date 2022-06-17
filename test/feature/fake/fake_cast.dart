@@ -1,4 +1,4 @@
-import 'package:movi/src/feature/domain/model/casts_state.dart';
+import 'package:model/model.dart';
 
 Cast castACtor = const Cast(
     adult: true,

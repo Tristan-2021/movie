@@ -4,10 +4,9 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
+import 'package:model/model.dart';
 import 'package:movi/src/core/exceptions/exception.dart';
-import 'package:movi/src/feature/domain/model/movie.state.dart';
-import 'package:movi/src/feature/domain/model/moviedetails/movi_details_state.dart';
-import 'package:movi/src/feature/domain/model/movies_state.dart';
+
 import 'package:movi/src/feature/domain/repo_sources/data_sources.dart';
 
 import '../../fake/fake_movi.dart';

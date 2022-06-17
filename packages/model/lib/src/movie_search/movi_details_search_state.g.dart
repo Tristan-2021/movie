@@ -2,22 +2,24 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'movies_state.dart';
+part of 'movi_details_search_state.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Movies _$$_MoviesFromJson(Map<String, dynamic> json) => _$_Movies(
-      adult: json['adult'] as bool,
-      backdropPath: json['backdrop_path'] as String,
-      genreIds:
-          (json['genre_ids'] as List<dynamic>).map((e) => e as int).toList(),
+_$_SearchVideoDetails _$$_SearchVideoDetailsFromJson(
+  Map<String, dynamic> json,
+) =>
+    _$_SearchVideoDetails(
+      adult: json['adult'] as bool?,
+      backdropPath: json['backdrop_path'] as String?,
       id: json['id'] as int,
+      originalLanguage: json['original_language'] as String,
       originalTitle: json['original_title'] as String,
       overview: json['overview'] as String,
       popularity: (json['popularity'] as num).toDouble(),
-      posterPath: json['poster_path'] as String,
+      posterPath: json['poster_path'] as String?,
       releaseDate: DateTime.parse(json['release_date'] as String),
       title: json['title'] as String,
       video: json['video'] as bool,
@@ -25,11 +27,14 @@ _$_Movies _$$_MoviesFromJson(Map<String, dynamic> json) => _$_Movies(
       voteCount: json['vote_count'] as int,
     );
 
-Map<String, dynamic> _$$_MoviesToJson(_$_Movies instance) => <String, dynamic>{
+Map<String, dynamic> _$$_SearchVideoDetailsToJson(
+  _$_SearchVideoDetails instance,
+) =>
+    <String, dynamic>{
       'adult': instance.adult,
       'backdrop_path': instance.backdropPath,
-      'genre_ids': instance.genreIds,
       'id': instance.id,
+      'original_language': instance.originalLanguage,
       'original_title': instance.originalTitle,
       'overview': instance.overview,
       'popularity': instance.popularity,

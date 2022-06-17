@@ -1,4 +1,4 @@
-import 'package:movi/src/feature/domain/model/movies_state.dart';
+import 'package:model/model.dart';
 
 var moviesfake = Movies(
     adult: true,

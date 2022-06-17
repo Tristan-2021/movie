@@ -1,4 +1,4 @@
-import '../../feature/domain/model/company/company_state.dart';
+import 'package:model/model.dart';
 
 String getPosterImg(String? profielPath) {
   if (profielPath != null) {
