@@ -12,7 +12,6 @@ environment:
 
 dependencies:
   bloc_test: ^9.0.3
-  build_runner: ^2.1.11
   cached_network_image: ^3.2.1
   cupertino_icons: ^1.0.2
   easy_localization: ^3.0.1
@@ -20,9 +19,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  http: ^0.13.4
+  build_runner: ^2.1.11
   freezed: ^2.0.3+1
   freezed_annotation: ^2.0.3
-  http: ^0.13.4
   json_serializable: ^6.2.0
   mocktail: ^0.3.0
   network_image_mock: ^2.1.0
